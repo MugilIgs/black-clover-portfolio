@@ -1,4 +1,3 @@
-
 export interface MagicAttribute {
   id: string;
   technology: string;
@@ -17,58 +16,58 @@ export const magicAttributes: MagicAttribute[] = [
     symbol: "ϟ",
     description:
       "Solving problems through programming, logical thinking, efficient algorithms, and object-oriented design.",
-    focus: "Java • JavaScript • C • Python • OOP • DSA",
+    focus: "Java • JavaScript • TypeScript • C • Python • OOPS • DSA",
     effect: "lightning",
   },
   {
-    id: "javascript",
-    technology: "Backend Development",
+    id: "backend",
+    technology: "Backend & API Engineering",
     magicType: "FIRE MAGIC",
     symbol: "✦",
     description:
-      "Building application logic, REST APIs, authentication flows, and reliable server-side services.",
-    focus: "Spring Boot • Node.js • Express.js • REST APIs • CRUD",
+      "Building robust application logic, REST services, database workflows, and secure server-side architectures.",
+    focus: "Spring Boot • Spring Security • Node.js • Express.js • REST APIs • CRUD",
     effect: "fire",
   },
   {
-    id: "react",
-    technology: "Frontend Development",
+    id: "frontend",
+    technology: "Frontend & Mobile Development",
     magicType: "WIND MAGIC",
     symbol: "〰",
     description:
-      "Creating responsive interfaces and interactive web experiences with reusable components and modern styling.",
-    focus: "HTML5 • CSS3 • React.js • EJS • Bootstrap • Tailwind CSS",
+      "Creating modern, responsive web interfaces and mobile applications with component-driven architectures.",
+    focus: "React.js • React Native • Expo • HTML5 • CSS3 • Tailwind CSS • Bootstrap • EJS",
     effect: "wind",
   },
   {
     id: "security",
-    technology: "Security Engineering",
+    technology: "Security & Encryption",
     magicType: "DARK MAGIC",
     symbol: "◐",
     description:
-      "Protecting applications and sensitive information with secure authentication, password hashing, and encryption.",
-    focus: "JWT • BCrypt • AES-256-GCM • Authorization",
+      "Protecting applications and user data with token-based authentication, cryptographic hashing, and encryption.",
+    focus: "JWT Authentication • BCrypt • AES-256-GCM • Authorization",
     effect: "security",
   },
   {
-    id: "postgresql",
+    id: "database",
     technology: "Database Engineering",
     magicType: "WATER MAGIC",
     symbol: "◇",
     description:
-      "Organizing, storing, and retrieving application data using relational and NoSQL database technologies.",
+      "Designing schemas, executing queries, and managing persistence using relational and document database systems.",
     focus: "PostgreSQL • MongoDB • MySQL",
     effect: "water",
   },
   {
-    id: "github",
-    technology: "Cloud, DevOps & Automation",
+    id: "cloud-ai",
+    technology: "Cloud, AI & DevOps",
     magicType: "NATURE MAGIC",
     symbol: "♧",
     description:
-      "Connecting cloud storage services, managing source code, working with development tools, and automating workflows.",
+      "Integrating AI services, multi-cloud storage, automated workflows, and containerized deployment pipelines.",
     focus:
-      "AWS S3 • Azure Blob • Google Cloud Storage • Docker • Git • GitHub • Postman • VS Code • n8n • API Integration",
+      "Google Gemini API • n8n • AWS S3 • Google Cloud Storage • Azure Blob Storage • Render • Docker • Expo EAS • Git • GitHub",
     effect: "nature",
   },
 ];

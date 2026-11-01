@@ -22,7 +22,7 @@ const guildLinks = [
     label: "LINKEDIN",
     title: "Connect With Me",
     detail: "Let's grow our professional network",
-    href: "https://www.linkedin.com/in/mugil-ignatius",
+    href: "https://www.linkedin.com/in/mugil-ignatius01",
   },
 ];
 
