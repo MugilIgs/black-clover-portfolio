@@ -20,7 +20,7 @@ export const magicAttributes: MagicAttribute[] = [
     effect: "lightning",
   },
   {
-    id: "backend",
+    id: "javascript",
     technology: "Backend & API Engineering",
     magicType: "FIRE MAGIC",
     symbol: "✦",
@@ -30,7 +30,7 @@ export const magicAttributes: MagicAttribute[] = [
     effect: "fire",
   },
   {
-    id: "frontend",
+    id: "react",
     technology: "Frontend & Mobile Development",
     magicType: "WIND MAGIC",
     symbol: "〰",
@@ -50,7 +50,7 @@ export const magicAttributes: MagicAttribute[] = [
     effect: "security",
   },
   {
-    id: "database",
+    id: "postgresql",
     technology: "Database Engineering",
     magicType: "WATER MAGIC",
     symbol: "◇",
@@ -60,7 +60,7 @@ export const magicAttributes: MagicAttribute[] = [
     effect: "water",
   },
   {
-    id: "cloud-ai",
+    id: "github",
     technology: "Cloud, AI & DevOps",
     magicType: "NATURE MAGIC",
     symbol: "♧",
