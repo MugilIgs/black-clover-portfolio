@@ -512,17 +512,28 @@
   }
 
   .guild-resume {
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
     flex-wrap: wrap;
     padding: 22px;
   }
 
   .guild-resume-copy {
-    flex-basis: calc(100% - 70px);
+    width: 100%;
+    text-align: center;
   }
 
   .guild-resume-button {
-    margin-left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px auto 0 !important;
+    align-self: center !important;
   }
 
   .guild-footer {

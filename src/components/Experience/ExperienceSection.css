@@ -638,6 +638,7 @@
   }
 
   /* Center certificate buttons */
+  .squad-certificates,
   .squad-certificate-buttons {
     display: flex;
     flex-direction: column;

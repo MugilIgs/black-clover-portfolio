@@ -1442,3 +1442,103 @@
   outline: 2px solid #218b55;
   outline-offset: 3px;
 }
+
+
+/* =========================================
+   MOBILE BUTTON CENTERING (max-width: 640px)
+   ========================================= */
+@media (max-width: 640px) {
+  /* Center category filter tabs */
+  .spell-filter-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 0 auto 24px !important;
+    padding: 0 4px !important;
+  }
+
+  .spell-filter-tab {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Center project card actions & buttons */
+  .spell-card-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .spell-card-bottom > .spell-status {
+    align-self: center !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .spell-card-actions,
+  .spell-card-bottom > .spell-card-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .spell-card-actions .spell-details-button,
+  .spell-card-actions .spell-code-button,
+  .spell-card-actions .spell-live-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .spell-card-actions .spell-unavailable {
+    display: inline-block !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* Center project details modal buttons */
+  .spell-details-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .spell-details-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .spell-details-actions .spell-live-button,
+  .spell-details-actions .spell-code-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}

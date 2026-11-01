@@ -2635,6 +2635,7 @@
   }
 
   /* Hero buttons */
+  .hero-content .hero-actions,
   .hero-content .hero-buttons {
     display: flex;
     flex-direction: column;
@@ -2709,6 +2710,7 @@
 }
 /* FIX: Mobile hero button alignment */
 @media screen and (max-width: 600px) {
+  .hero-content .hero-actions,
   .hero-content .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -2722,6 +2724,7 @@
     padding: 0 8px !important;
   }
 
+  .hero-content .hero-actions .magic-button,
   .hero-content .hero-buttons .magic-button {
     display: flex !important;
     align-items: center !important;
@@ -2749,6 +2752,7 @@
 
 /* Extra-small phones */
 @media screen and (max-width: 360px) {
+  .hero-content .hero-actions .magic-button,
   .hero-content .hero-buttons .magic-button {
     max-width: 250px !important;
     min-height: 46px !important;
