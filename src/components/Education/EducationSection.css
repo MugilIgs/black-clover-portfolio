@@ -1,0 +1,388 @@
+
+/* =========================
+   EDUCATION SECTION
+========================= */
+
+.education-section {
+  position: relative;
+  padding: 35px 7vw 55px;
+  background: #050705;
+  color: #f5f5f5;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.education-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.education-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.education-heading span {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: #79d98b;
+}
+
+.education-heading h2 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: 0.08em;
+  color: #f5f5f5;
+}
+
+.education-divider {
+  width: 80px;
+  height: 2px;
+  margin: 25px auto 0;
+  background: #65d87a;
+  box-shadow: 0 0 15px rgba(101, 216, 122, 0.6);
+}
+
+/* =========================
+   EDUCATION CARD
+========================= */
+
+.education-card {
+  display: grid;
+  grid-template-columns: 150px 2px 1fr;
+  gap: 40px;
+  padding: 55px;
+
+  border: 1px solid rgba(101, 216, 122, 0.18);
+
+  background: linear-gradient(
+    135deg,
+    rgba(18, 35, 21, 0.7),
+    rgba(5, 10, 6, 0.95)
+  );
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* =========================
+   YEAR
+========================= */
+
+.education-year {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.education-year span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.education-year strong {
+  font-family: "Cinzel", serif;
+  font-size: 2.4rem;
+  color: #65d87a;
+  text-shadow: 0 0 20px rgba(101, 216, 122, 0.25);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.education-line {
+  position: relative;
+  background: rgba(101, 216, 122, 0.25);
+}
+
+.education-line::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  background: #65d87a;
+  box-shadow: 0 0 15px rgba(101, 216, 122, 0.8);
+}
+
+/* =========================
+   EDUCATION CONTENT
+========================= */
+
+.education-type {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: #79d98b;
+}
+
+.education-content h3 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 3rem;
+  color: #f5f5f5;
+}
+
+.education-content h4 {
+  margin: 5px 0 25px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.education-institution {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.education-university {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   EDUCATION META
+========================= */
+
+.education-meta {
+  display: flex;
+  gap: 60px;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(101, 216, 122, 0.12);
+}
+
+.education-meta div span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.education-meta div strong {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  color: #65d87a;
+}
+
+/* =========================
+   YUNO MODE — SAGE GREEN
+========================= */
+
+:root[data-magic-mode="yuno"] .education-section {
+  background: #e2ede2;
+  color: #233c2b;
+}
+
+:root[data-magic-mode="yuno"] .education-heading span,
+:root[data-magic-mode="yuno"] .education-type {
+  color: #286b43;
+}
+
+:root[data-magic-mode="yuno"] .education-heading h2 {
+  color: #203b2a;
+}
+
+:root[data-magic-mode="yuno"] .education-divider {
+  background: #348653;
+  box-shadow: 0 0 15px rgba(52, 134, 83, 0.3);
+}
+
+:root[data-magic-mode="yuno"] .education-card {
+  border-color: rgba(42, 104, 62, 0.24);
+
+  background: linear-gradient(
+    135deg,
+    #eaf2e7,
+    #d5e5d5 55%,
+    #cbdcc9
+  );
+
+  box-shadow: 0 25px 65px rgba(43, 76, 48, 0.12);
+}
+
+:root[data-magic-mode="yuno"] .education-year span,
+:root[data-magic-mode="yuno"] .education-meta div span {
+  color: #617764;
+}
+
+:root[data-magic-mode="yuno"] .education-year strong,
+:root[data-magic-mode="yuno"] .education-meta div strong {
+  color: #286b43;
+  text-shadow: none;
+}
+
+:root[data-magic-mode="yuno"] .education-line {
+  background: rgba(40, 107, 67, 0.3);
+}
+
+:root[data-magic-mode="yuno"] .education-line::before {
+  background: #348653;
+  box-shadow: 0 0 12px rgba(52, 134, 83, 0.35);
+}
+
+:root[data-magic-mode="yuno"] .education-content h3 {
+  color: #203b2a;
+}
+
+:root[data-magic-mode="yuno"] .education-content h4 {
+  color: #526b57;
+}
+
+:root[data-magic-mode="yuno"] .education-institution {
+  color: #304e37;
+}
+
+:root[data-magic-mode="yuno"] .education-university {
+  color: #657967;
+}
+
+:root[data-magic-mode="yuno"] .education-meta {
+  border-top-color: rgba(42, 104, 62, 0.2);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .education-section {
+    padding: 30px 6vw 40px;
+  }
+
+  .education-card {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 35px 25px;
+  }
+
+  .education-year {
+    text-align: left;
+  }
+
+  .education-line {
+    display: none;
+  }
+
+  .education-content h3 {
+    font-size: 2.2rem;
+  }
+
+  .education-meta {
+    flex-wrap: wrap;
+    gap: 25px 35px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .education-section,
+  .education-card {
+    transition: none;
+  }
+}
+
+/* =========================
+   ASTA MODE — DARK VIOLET
+   Keep this at the bottom
+========================= */
+
+:root[data-magic-mode="asta"] .education-section {
+  background: #07040d;
+}
+
+:root[data-magic-mode="asta"] .education-heading span,
+:root[data-magic-mode="asta"] .education-type {
+  color: #c4a0ff;
+}
+
+:root[data-magic-mode="asta"] .education-heading h2 {
+  color: #f5efff;
+}
+
+:root[data-magic-mode="asta"] .education-divider {
+  background: #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.55);
+}
+
+:root[data-magic-mode="asta"] .education-card {
+  border-color: rgba(168, 85, 247, 0.3);
+
+  background: linear-gradient(
+    135deg,
+    #160d24,
+    #0d0815 55%,
+    #08050e
+  );
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-magic-mode="asta"] .education-year span,
+:root[data-magic-mode="asta"] .education-meta div span {
+  color: rgba(220, 204, 245, 0.55);
+}
+
+:root[data-magic-mode="asta"] .education-year strong,
+:root[data-magic-mode="asta"] .education-meta div strong {
+  color: #c084fc;
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.25);
+}
+
+:root[data-magic-mode="asta"] .education-line {
+  background: rgba(168, 85, 247, 0.3);
+}
+
+:root[data-magic-mode="asta"] .education-line::before {
+  background: #c084fc;
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.7);
+}
+
+:root[data-magic-mode="asta"] .education-content h3 {
+  color: #f5efff;
+}
+
+:root[data-magic-mode="asta"] .education-content h4 {
+  color: rgba(230, 216, 250, 0.7);
+}
+
+:root[data-magic-mode="asta"] .education-institution {
+  color: #f0e8fa;
+}
+
+:root[data-magic-mode="asta"] .education-university {
+  color: rgba(220, 204, 245, 0.55);
+}
+
+:root[data-magic-mode="asta"] .education-meta {
+  border-top-color: rgba(168, 85, 247, 0.2);
+}

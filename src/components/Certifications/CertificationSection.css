@@ -1,0 +1,750 @@
+
+/* =========================
+   CERTIFICATION SECTION
+========================= */
+
+.scrolls-section {
+  padding: 40px 24px 55px;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(65, 140, 80, 0.12),
+      transparent 55%
+    ),
+    #080b09;
+  transition: background 0.35s ease;
+}
+
+.scrolls-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.scrolls-heading {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.scrolls-eyebrow {
+  color: #72e58b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.scrolls-heading h2 {
+  margin: 16px 0;
+  color: #f3f7f3;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.scrolls-heading h2 span {
+  color: #72e58b;
+  text-shadow: 0 0 22px rgba(114, 229, 139, 0.22);
+}
+
+.scrolls-heading > p {
+  max-width: 560px;
+  margin: 0 auto;
+  color: #9ca99f;
+  line-height: 1.8;
+}
+
+.scrolls-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  color: #72e58b;
+}
+
+.scrolls-divider::before,
+.scrolls-divider::after {
+  width: 65px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #72e58b);
+  content: "";
+}
+
+.scrolls-divider::after {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   CERTIFICATE GRID
+========================= */
+
+.scrolls-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.scroll-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid rgba(114, 229, 139, 0.24);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #111813, #090d0a);
+  box-shadow: inset 0 0 20px rgba(114, 229, 139, 0.025);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.35s ease;
+}
+
+.scroll-card:hover {
+  border-color: rgba(114, 229, 139, 0.8);
+  box-shadow: 0 0 28px rgba(114, 229, 139, 0.08);
+}
+
+.scroll-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: #8fa295;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.scroll-card-rune {
+  color: #72e58b;
+  font-size: 1.4rem;
+}
+
+/* =========================
+   CERTIFICATE IMAGE
+========================= */
+
+.scroll-image-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid #29382c;
+  border-radius: 7px;
+  background: #050705;
+  cursor: pointer;
+}
+
+.scroll-certificate-image {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  background: #080b09;
+  transition: transform 0.35s ease;
+}
+
+.scroll-image-button:hover .scroll-certificate-image {
+  transform: scale(1.035);
+}
+
+.scroll-image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 10, 6, 0.72);
+  color: #a0f5b1;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.scroll-image-button:hover .scroll-image-overlay,
+.scroll-image-button:focus-visible .scroll-image-overlay {
+  opacity: 1;
+}
+
+/* =========================
+   CERTIFICATE DETAILS
+========================= */
+
+.scroll-card-info {
+  flex: 1;
+  padding: 18px 2px;
+}
+
+.scroll-card-info h3 {
+  margin: 0 0 8px;
+  color: #f0f5f0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.scroll-card-info p {
+  margin: 0;
+  color: #91a096;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.scroll-completion-date {
+  display: block;
+  margin-top: 12px;
+  color: #72e58b;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.6;
+}
+
+/* =========================
+   VIEW CERTIFICATE BUTTON
+========================= */
+
+.scroll-view-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #427b4d;
+  border-radius: 6px;
+  background: rgba(114, 229, 139, 0.06);
+  color: #86ed9b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.scroll-view-button:hover {
+  background: rgba(114, 229, 139, 0.13);
+  box-shadow: 0 0 16px rgba(114, 229, 139, 0.1);
+}
+
+/* =========================
+   CERTIFICATE MODAL
+========================= */
+
+.scroll-modal-backdrop {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(8px);
+}
+
+.scroll-modal {
+  width: min(950px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  border: 1px solid rgba(114, 229, 139, 0.5);
+  border-radius: 12px;
+  background: #0b100c;
+  box-shadow: 0 0 45px rgba(114, 229, 139, 0.1);
+}
+
+.scroll-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  border-bottom: 1px solid #26362a;
+}
+
+.scroll-modal-header > div > span {
+  color: #72e58b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.scroll-modal-header h3 {
+  margin: 8px 0 4px;
+  color: #f3f7f3;
+  font-size: 1.15rem;
+}
+
+.scroll-modal-header p {
+  margin: 0;
+  color: #9ca99f;
+  font-size: 0.85rem;
+}
+
+.scroll-modal-close {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid #72e58b;
+  border-radius: 8px;
+  background: #142019;
+  color: #ffffff !important;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-modal-close:hover {
+  background: #23452c;
+  color: #72e58b !important;
+  box-shadow: 0 0 14px rgba(114, 229, 139, 0.25);
+}
+
+.scroll-modal-close:focus-visible {
+  outline: 2px solid #72e58b;
+  outline-offset: 3px;
+}
+
+.scroll-modal-image-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.scroll-modal-image-wrap img {
+  display: block;
+  max-width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+}
+
+/* =========================
+   YUNO MODE — SAGE GREEN
+========================= */
+
+:root[data-magic-mode="yuno"] .scrolls-section {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(72, 130, 82, 0.1),
+      transparent 60%
+    ),
+    #e2ede2;
+}
+
+:root[data-magic-mode="yuno"] .scrolls-eyebrow,
+:root[data-magic-mode="yuno"] .scrolls-heading h2 span,
+:root[data-magic-mode="yuno"] .scrolls-divider {
+  color: #286b43;
+}
+
+:root[data-magic-mode="yuno"] .scrolls-heading h2 {
+  color: #203b2a;
+}
+
+:root[data-magic-mode="yuno"] .scrolls-heading h2 span {
+  text-shadow: 0 0 18px rgba(40, 107, 67, 0.12);
+}
+
+:root[data-magic-mode="yuno"] .scrolls-divider::before,
+:root[data-magic-mode="yuno"] .scrolls-divider::after {
+  background: linear-gradient(90deg, transparent, #348653);
+}
+
+:root[data-magic-mode="yuno"] .scrolls-heading > p {
+  color: #526b57;
+}
+
+:root[data-magic-mode="yuno"] .scroll-card {
+  border-color: rgba(42, 104, 62, 0.24);
+  background: linear-gradient(145deg, #eaf2e7, #d5e5d5);
+  box-shadow: inset 0 0 20px rgba(42, 104, 62, 0.025);
+}
+
+:root[data-magic-mode="yuno"] .scroll-card:hover {
+  border-color: rgba(42, 104, 62, 0.65);
+  box-shadow: 0 8px 26px rgba(43, 76, 48, 0.12);
+}
+
+:root[data-magic-mode="yuno"] .scroll-card-top {
+  color: #617764;
+}
+
+:root[data-magic-mode="yuno"] .scroll-card-rune,
+:root[data-magic-mode="yuno"] .scroll-completion-date {
+  color: #286b43;
+}
+
+:root[data-magic-mode="yuno"] .scroll-image-button {
+  border-color: #b5cbb6;
+  background: #dce8da;
+}
+
+:root[data-magic-mode="yuno"] .scroll-certificate-image {
+  background: #dce8da;
+}
+
+:root[data-magic-mode="yuno"] .scroll-image-overlay {
+  background: rgba(27, 59, 36, 0.72);
+  color: #e2f5e5;
+}
+
+:root[data-magic-mode="yuno"] .scroll-card-info h3 {
+  color: #203b2a;
+}
+
+:root[data-magic-mode="yuno"] .scroll-card-info p {
+  color: #526b57;
+}
+
+:root[data-magic-mode="yuno"] .scroll-view-button {
+  border-color: #78a783;
+  background: rgba(52, 134, 83, 0.07);
+  color: #286b43;
+}
+
+:root[data-magic-mode="yuno"] .scroll-view-button:hover {
+  background: rgba(52, 134, 83, 0.14);
+  box-shadow: 0 0 16px rgba(52, 134, 83, 0.12);
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal {
+  border-color: #8eb69a;
+  background: #eaf2e7;
+  box-shadow: 0 0 35px rgba(43, 76, 48, 0.15);
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal-header {
+  border-bottom-color: #c4d8c5;
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal-header > div > span {
+  color: #286b43;
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal-header h3 {
+  color: #203b2a;
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal-header p {
+  color: #526b57;
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal-close {
+  border-color: #78a783;
+  background: #d5e5d5;
+  color: #203b2a !important;
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal-close:hover {
+  background: #c4dcc6;
+  color: #286b43 !important;
+  box-shadow: 0 0 14px rgba(52, 134, 83, 0.18);
+}
+
+:root[data-magic-mode="yuno"] .scroll-modal-close:focus-visible {
+  outline-color: #348653;
+}
+
+/* =========================
+   ASTA MODE — DARK VIOLET
+========================= */
+
+:root[data-magic-mode="asta"] .scrolls-section {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(139, 72, 210, 0.15),
+      transparent 55%
+    ),
+    #07040d;
+}
+
+:root[data-magic-mode="asta"] .scrolls-eyebrow,
+:root[data-magic-mode="asta"] .scrolls-heading h2 span,
+:root[data-magic-mode="asta"] .scrolls-divider {
+  color: #c4a0ff;
+}
+
+:root[data-magic-mode="asta"] .scrolls-heading h2 {
+  color: #f5efff;
+}
+
+:root[data-magic-mode="asta"] .scrolls-heading h2 span {
+  text-shadow: 0 0 22px rgba(192, 132, 252, 0.25);
+}
+
+:root[data-magic-mode="asta"] .scrolls-divider::before,
+:root[data-magic-mode="asta"] .scrolls-divider::after {
+  background: linear-gradient(90deg, transparent, #c084fc);
+}
+
+:root[data-magic-mode="asta"] .scrolls-heading > p {
+  color: #b9a9ce;
+}
+
+:root[data-magic-mode="asta"] .scroll-card {
+  border-color: rgba(168, 85, 247, 0.28);
+  background: linear-gradient(145deg, #190e27, #0c0713);
+  box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.035);
+}
+
+:root[data-magic-mode="asta"] .scroll-card:hover {
+  border-color: rgba(192, 132, 252, 0.8);
+  box-shadow: 0 0 28px rgba(168, 85, 247, 0.12);
+}
+
+:root[data-magic-mode="asta"] .scroll-card-top {
+  color: #b3a1c8;
+}
+
+:root[data-magic-mode="asta"] .scroll-card-rune,
+:root[data-magic-mode="asta"] .scroll-completion-date {
+  color: #c084fc;
+}
+
+:root[data-magic-mode="asta"] .scroll-image-button {
+  border-color: #49315f;
+  background: #09050f;
+}
+
+:root[data-magic-mode="asta"] .scroll-certificate-image {
+  background: #09050f;
+}
+
+:root[data-magic-mode="asta"] .scroll-image-overlay {
+  background: rgba(12, 5, 22, 0.76);
+  color: #e0c7ff;
+}
+
+:root[data-magic-mode="asta"] .scroll-card-info h3 {
+  color: #f5efff;
+}
+
+:root[data-magic-mode="asta"] .scroll-card-info p {
+  color: #b9a9ce;
+}
+
+:root[data-magic-mode="asta"] .scroll-view-button {
+  border-color: #70469a;
+  background: rgba(168, 85, 247, 0.08);
+  color: #d8b8ff;
+}
+
+:root[data-magic-mode="asta"] .scroll-view-button:hover {
+  background: rgba(168, 85, 247, 0.16);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.14);
+}
+
+:root[data-magic-mode="asta"] .scroll-modal {
+  border-color: rgba(192, 132, 252, 0.5);
+  background: #100a19;
+  box-shadow: 0 0 45px rgba(168, 85, 247, 0.12);
+}
+
+:root[data-magic-mode="asta"] .scroll-modal-header {
+  border-bottom-color: #352342;
+}
+
+:root[data-magic-mode="asta"] .scroll-modal-header > div > span {
+  color: #c4a0ff;
+}
+
+:root[data-magic-mode="asta"] .scroll-modal-header h3 {
+  color: #f5efff;
+}
+
+:root[data-magic-mode="asta"] .scroll-modal-header p {
+  color: #b9a9ce;
+}
+
+:root[data-magic-mode="asta"] .scroll-modal-close {
+  border-color: #9a67cf;
+  background: #21132f;
+  color: #ffffff !important;
+}
+
+:root[data-magic-mode="asta"] .scroll-modal-close:hover {
+  background: #38204d;
+  color: #d8b8ff !important;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.25);
+}
+
+:root[data-magic-mode="asta"] .scroll-modal-close:focus-visible {
+  outline-color: #c084fc;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .scrolls-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .scrolls-section {
+    padding: 30px 12px 40px;
+  }
+
+  .scrolls-heading {
+    margin-bottom: 22px;
+  }
+
+  .scrolls-heading h2 {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    letter-spacing: 2px;
+  }
+
+  .scrolls-heading > p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Two certificate cards per row */
+  .scrolls-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .scroll-card {
+    padding: 9px;
+    border-radius: 9px;
+  }
+
+  .scroll-card-top {
+    gap: 5px;
+    margin-bottom: 8px;
+    font-size: 0.52rem;
+    letter-spacing: 0.7px;
+  }
+
+  .scroll-card-rune {
+    font-size: 1rem;
+  }
+
+  .scroll-certificate-image {
+    height: 100px;
+  }
+
+  .scroll-card-info {
+    padding: 10px 1px;
+  }
+
+  .scroll-card-info h3 {
+    margin-bottom: 5px;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .scroll-card-info p {
+    font-size: 0.68rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .scroll-completion-date {
+    margin-top: 7px;
+    font-size: 0.58rem;
+    line-height: 1.4;
+  }
+
+  .scroll-view-button {
+    gap: 5px;
+    padding: 9px 5px;
+    font-size: 0.58rem;
+    letter-spacing: 0.4px;
+  }
+
+  .scroll-modal-backdrop {
+    padding: 12px;
+  }
+
+  .scroll-modal-header {
+    padding: 14px;
+  }
+
+  .scroll-modal-header h3 {
+    font-size: 1rem;
+  }
+
+  .scroll-modal-image-wrap {
+    padding: 12px;
+  }
+
+  .scroll-modal-image-wrap img {
+    max-height: 65vh;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+  .scrolls-section {
+    padding-inline: 9px;
+  }
+
+  .scrolls-grid {
+    gap: 8px;
+  }
+
+  .scroll-card {
+    padding: 7px;
+  }
+
+  .scroll-certificate-image {
+    height: 82px;
+  }
+
+  .scroll-card-info h3 {
+    font-size: 0.72rem;
+  }
+
+  .scroll-view-button {
+    font-size: 0.53rem;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .scrolls-section,
+  .scroll-card,
+  .scroll-certificate-image,
+  .scroll-image-overlay,
+  .scroll-view-button {
+    transition: none;
+  }
+}

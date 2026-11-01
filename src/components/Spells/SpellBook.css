@@ -1,0 +1,1444 @@
+
+/* =========================================
+   SPELL BOOK — GRIMOIRE PROJECTS
+   Asta: Dark Violet | Yuno: Sage Green
+   ========================================= */
+
+.spell-book-section {
+  position: relative;
+  padding: 40px 24px 55px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(126, 34, 206, 0.14),
+      transparent 55%
+    ),
+    #080510;
+}
+
+.spell-book-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.spell-book-heading {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.spell-book-eyebrow {
+  color: #c084fc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.spell-book-heading h2 {
+  margin: 16px 0;
+  color: #f5f0ff;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.spell-book-heading h2 span {
+  color: #b78aff;
+  text-shadow: 0 0 24px rgba(183, 138, 255, 0.25);
+}
+
+.spell-book-heading > p {
+  max-width: 540px;
+  margin: 0 auto;
+  color: #b6a9c8;
+  line-height: 1.8;
+}
+
+.spell-book-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 25px;
+  color: #b78aff;
+}
+
+.spell-book-divider::before,
+.spell-book-divider::after {
+  width: 70px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    currentColor
+  );
+  content: "";
+}
+
+.spell-book-divider::after {
+  transform: rotate(180deg);
+}
+
+/* Category Filter Tabs */
+
+.spell-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 34px;
+}
+
+.spell-filter-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border: 1px solid rgba(183, 138, 255, 0.28);
+  border-radius: 9999px;
+  background: rgba(23, 16, 32, 0.7);
+  backdrop-filter: blur(8px);
+  color: #c9b9dc;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.spell-filter-tab:hover {
+  border-color: #b78aff;
+  color: #f5f0ff;
+  box-shadow: 0 4px 16px rgba(183, 138, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.spell-filter-tab:focus-visible {
+  outline: 2px solid #b78aff;
+  outline-offset: 3px;
+}
+
+.spell-filter-tab.active {
+  border-color: #b78aff;
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.32),
+    rgba(126, 34, 206, 0.24)
+  );
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow:
+    0 0 16px rgba(183, 138, 255, 0.35),
+    inset 0 0 10px rgba(183, 138, 255, 0.15);
+}
+
+/* Project grid */
+
+.spell-book-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Project card */
+
+.spell-card {
+  --spell-color: #b78aff;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 26px;
+  border: 1px solid
+    color-mix(in srgb, var(--spell-color) 32%, transparent);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--spell-color) 7%, #171020),
+      #0d0915 65%
+    );
+  box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.012);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.spell-card:hover {
+  border-color: var(--spell-color);
+  box-shadow:
+    0 12px 38px
+      color-mix(in srgb, var(--spell-color) 12%, transparent),
+    inset 0 0 25px
+      color-mix(in srgb, var(--spell-color) 5%, transparent);
+}
+
+.spell-card-top,
+.spell-card-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.spell-number {
+  color: #b6a9c8;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.spell-symbol {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid
+    color-mix(in srgb, var(--spell-color) 55%, transparent);
+  border-radius: 12px;
+  color: var(--spell-color);
+  font-size: 1.8rem;
+  background: color-mix(
+    in srgb,
+    var(--spell-color) 8%,
+    transparent
+  );
+  text-shadow: 0 0 18px var(--spell-color);
+}
+
+.spell-card-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 28px 0;
+}
+
+.spell-type {
+  color: var(--spell-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.spell-card-content h3 {
+  margin: 12px 0 6px;
+  color: #f5f0ff;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.35;
+}
+
+.spell-subtitle {
+  margin: 0 0 18px;
+  color: var(--spell-color);
+  font-size: 0.85rem;
+}
+
+.spell-description {
+  margin: 0;
+  color: #b6a9c8;
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+/* Technology tags */
+
+.spell-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.spell-tech-list span {
+  padding: 6px 10px;
+  border: 1px solid #35283f;
+  border-radius: 5px;
+  background: #171020;
+  color: #d8cce5;
+  font-size: 0.72rem;
+}
+
+/* Status and rank */
+
+.spell-card-bottom {
+  padding-top: 18px;
+  border-top: 1px solid #30243a;
+}
+
+.spell-status {
+  padding: 6px 9px;
+  border: 1px solid #574763;
+  border-radius: 5px;
+  color: #d8cce5;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.status-completed {
+  border-color: rgba(183, 138, 255, 0.4);
+  color: #c8a9ff;
+}
+
+.status-in-progress {
+  border-color: rgba(255, 209, 102, 0.35);
+  color: #ffd166;
+}
+
+.status-planned {
+  color: #b7a5e8;
+}
+
+.spell-rank {
+  color: #a99ab8;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+}
+
+/* Decorative glow */
+
+.spell-card-glow {
+  position: absolute;
+  z-index: 0;
+  top: -80px;
+  right: -80px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--spell-color);
+  filter: blur(100px);
+  opacity: 0.07;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.spell-card:hover .spell-card-glow {
+  opacity: 0.17;
+}
+
+/* Live project link */
+
+.spell-live-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--spell-color);
+  border-radius: 6px;
+  background: color-mix(
+    in srgb,
+    var(--spell-color) 10%,
+    transparent
+  );
+  color: var(--spell-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.spell-live-button:hover {
+  background: color-mix(
+    in srgb,
+    var(--spell-color) 20%,
+    transparent
+  );
+  box-shadow: 0 0 18px
+    color-mix(in srgb, var(--spell-color) 25%, transparent);
+  transform: translateY(-2px);
+}
+
+.spell-live-button:focus-visible {
+  outline: 2px solid var(--spell-color);
+  outline-offset: 4px;
+}
+
+.spell-unavailable {
+  color: #a99ab8;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   YUNO MODE — ALTERNATING SAGE GREEN
+   ========================================= */
+
+:root[data-magic-mode="yuno"] .spell-book-section {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(33, 139, 85, 0.12),
+      transparent 55%
+    ),
+    #e2ede2;
+}
+
+:root[data-magic-mode="yuno"] .spell-book-eyebrow,
+:root[data-magic-mode="yuno"] .spell-book-heading h2 span {
+  color: #218b55;
+}
+
+:root[data-magic-mode="yuno"] .spell-book-heading h2 {
+  color: #20372a;
+}
+
+:root[data-magic-mode="yuno"] .spell-book-heading h2 span {
+  text-shadow: 0 0 18px rgba(33, 139, 85, 0.16);
+}
+
+:root[data-magic-mode="yuno"] .spell-book-heading > p {
+  color: #53675a;
+}
+
+:root[data-magic-mode="yuno"] .spell-book-divider {
+  color: #218b55;
+}
+
+:root[data-magic-mode="yuno"] .spell-card {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--spell-color) 5%, #eaf3e9),
+      #d2e4d3 75%
+    );
+  border-color: rgba(31, 109, 67, 0.22);
+  box-shadow: 0 8px 24px rgba(32, 70, 42, 0.06);
+}
+
+:root[data-magic-mode="yuno"] .spell-card:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--spell-color) 65%,
+    #218b55
+  );
+  box-shadow: 0 12px 30px rgba(32, 70, 42, 0.12);
+}
+
+:root[data-magic-mode="yuno"] .spell-number {
+  color: #53675a;
+}
+
+:root[data-magic-mode="yuno"] .spell-card-content h3 {
+  color: #20372a;
+}
+
+:root[data-magic-mode="yuno"] .spell-description {
+  color: #465b4c;
+}
+
+:root[data-magic-mode="yuno"] .spell-tech-list span {
+  border-color: #bdcfbe;
+  background: #dce9dc;
+  color: #365543;
+}
+
+:root[data-magic-mode="yuno"] .spell-card-bottom {
+  border-top-color: #bdcfbe;
+}
+
+:root[data-magic-mode="yuno"] .spell-status {
+  border-color: #a6bba9;
+  color: #365543;
+}
+
+:root[data-magic-mode="yuno"] .status-completed {
+  border-color: rgba(33, 139, 85, 0.45);
+  color: #17683d;
+}
+
+:root[data-magic-mode="yuno"] .status-in-progress {
+  border-color: rgba(160, 110, 20, 0.4);
+  color: #805b12;
+}
+
+:root[data-magic-mode="yuno"] .status-planned {
+  color: #62528c;
+}
+
+:root[data-magic-mode="yuno"] .spell-rank,
+:root[data-magic-mode="yuno"] .spell-unavailable {
+  color: #53675a;
+}
+
+/* Responsive layout */
+
+@media (max-width: 700px) {
+  .spell-book-section {
+    padding: 30px 18px 40px;
+  }
+
+  .spell-book-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .spell-card {
+    padding: 22px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .spell-card,
+  .spell-card-glow,
+  .spell-live-button {
+    transition: none !important;
+  }
+
+  .spell-live-button:hover {
+    transform: none;
+  }
+}
+
+/* =====================================
+   PROJECT DETAILS BUTTON
+===================================== */
+
+.spell-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.spell-details-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--spell-color, #a78bfa);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--spell-color, #a78bfa);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.spell-details-button:hover {
+  background: color-mix(
+    in srgb,
+    var(--spell-color, #a78bfa) 12%,
+    transparent
+  );
+  box-shadow: 0 0 15px
+    color-mix(
+      in srgb,
+      var(--spell-color, #a78bfa) 20%,
+      transparent
+    );
+  transform: translateY(-1px);
+}
+
+.spell-details-button:focus-visible,
+.spell-details-close:focus-visible {
+  outline: 2px solid var(--spell-color, #a78bfa);
+  outline-offset: 3px;
+}
+
+/* =====================================
+*/
+
+.spell-code-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border: 1px solid rgba(183, 138, 255, 0.35);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e9d5ff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.spell-code-button:hover {
+  background: rgba(183, 138, 255, 0.14);
+  border-color: #b78aff;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(183, 138, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.spell-code-button:focus-visible {
+  outline: 2px solid #b78aff;
+  outline-offset: 3px;
+}
+
+/* =====================================
+   PROJECT DETAILS MODAL
+===================================== */
+
+.spell-details-backdrop {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 22px;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(9px);
+}
+
+.spell-details-modal {
+  width: min(760px, 100%);
+  max-height: min(86vh, 850px);
+  max-height: min(86dvh, 850px);
+  overflow-y: auto;
+  border: 1px solid
+    color-mix(in srgb, var(--spell-color, #a78bfa) 55%, transparent);
+  border-radius: 12px;
+  background: #0b0910;
+  color: #f3eff8;
+  box-shadow:
+    0 0 45px
+      color-mix(in srgb, var(--spell-color, #a78bfa) 12%, transparent),
+    0 25px 90px rgba(0, 0, 0, 0.55);
+}
+
+.spell-details-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--spell-color, #a78bfa) 10%, transparent),
+    transparent 75%
+  );
+}
+
+.spell-details-eyebrow {
+  color: var(--spell-color, #a78bfa);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.spell-details-header h2 {
+  margin: 12px 0 8px;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.spell-details-header p {
+  margin: 0;
+  color: #b9afc3;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.spell-details-close {
+  display: grid;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.spell-details-close:hover {
+  border-color: var(--spell-color, #a78bfa);
+  color: var(--spell-color, #a78bfa);
+}
+
+.spell-details-body {
+  padding: 25px;
+}
+
+.spell-details-body h3 {
+  margin: 24px 0 10px;
+  color: var(--spell-color, #a78bfa);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.spell-details-body h3:first-child {
+  margin-top: 0;
+}
+
+.spell-details-body > p {
+  margin: 0;
+  color: #c7bfce;
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+.spell-details-features {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+  color: #d7d0df;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.spell-details-features li::marker {
+  color: var(--spell-color, #a78bfa);
+}
+
+.spell-details-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.spell-details-tech span {
+  padding: 7px 10px;
+  border: 1px solid
+    color-mix(in srgb, var(--spell-color, #a78bfa) 30%, transparent);
+  border-radius: 5px;
+  background: color-mix(
+    in srgb,
+    var(--spell-color, #a78bfa) 7%,
+    transparent
+  );
+  color: #e4ddec;
+  font-size: 0.76rem;
+}
+
+.spell-details-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =====================================
+   YUNO MODE
+===================================== */
+
+:root[data-magic-mode="yuno"] .spell-details-modal {
+  background: #e2ede2;
+  color: #183622;
+  border-color: rgba(40, 120, 65, 0.45);
+}
+
+:root[data-magic-mode="yuno"] .spell-details-header {
+  border-bottom-color: rgba(30, 90, 45, 0.15);
+}
+
+:root[data-magic-mode="yuno"] .spell-details-header p,
+:root[data-magic-mode="yuno"] .spell-details-body > p,
+:root[data-magic-mode="yuno"] .spell-details-features {
+  color: #355b40;
+}
+
+:root[data-magic-mode="yuno"] .spell-details-close {
+  border-color: rgba(30, 90, 45, 0.25);
+  background: rgba(30, 90, 45, 0.06);
+  color: #183622;
+}
+
+:root[data-magic-mode="yuno"] .spell-details-tech span {
+  color: #234a30;
+}
+
+:root[data-magic-mode="yuno"] .spell-details-footer {
+  border-top-color: rgba(30, 90, 45, 0.18);
+}
+
+/* =====================================
+   RESPONSIVE + ACCESSIBILITY
+===================================== */
+
+@media (max-width: 600px) {
+  .spell-card-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .spell-details-backdrop {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .spell-details-modal {
+    max-height: 92vh;
+    max-height: 92dvh;
+  }
+
+  .spell-details-header,
+  .spell-details-body {
+    padding: 18px;
+  }
+
+  .spell-details-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .spell-details-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spell-details-button {
+    transition: none;
+  }
+}
+
+/* View Details — proper magic button */
+.spell-details-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+  min-height: 40px;
+
+  border: 1px solid rgba(176, 120, 255, 0.55);
+  border-radius: 8px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(139, 76, 255, 0.18),
+    rgba(94, 45, 160, 0.10)
+  );
+
+  color: #c9a4ff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.spell-details-button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 76, 255, 0.35),
+    rgba(94, 45, 160, 0.22)
+  );
+
+  border-color: #b78aff;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(157, 94, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.spell-details-button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.spell-details-button:focus-visible {
+  outline: 2px solid #c9a4ff;
+  outline-offset: 4px;
+}
+
+/* Yuno mode — muted sage-green button */
+:root[data-magic-mode="yuno"] .spell-details-button {
+  color: #c0d9c1;
+  border-color: rgba(130, 180, 135, 0.55);
+  background: linear-gradient(
+    135deg,
+    rgba(95, 145, 100, 0.20),
+    rgba(45, 85, 55, 0.12)
+  );
+}
+
+:root[data-magic-mode="yuno"] .spell-details-button:hover {
+  color: #ffffff;
+  border-color: #9bc6a0;
+  background: linear-gradient(
+    135deg,
+    rgba(95, 145, 100, 0.38),
+    rgba(45, 85, 55, 0.25)
+  );
+  box-shadow: 0 0 18px rgba(130, 180, 135, 0.20);
+}
+
+/* Keep the button comfortable on mobile */
+@media (max-width: 480px) {
+  .spell-details-button {
+    padding: 9px 13px;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+  }
+}
+
+
+/* =====================================
+   SPELL CARD FOOTER — CLEAN ALIGNMENT
+   ===================================== */
+
+.spell-card-bottom {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding-top: 18px;
+  border-top: 1px solid #30243a;
+}
+
+/* Status stays on the left */
+.spell-card-bottom .spell-status {
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+/* Details button and deployment status stay together on the right */
+.spell-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 18px;
+
+  min-width: 0;
+  margin-left: auto;
+}
+
+/* Consistent button sizing */
+.spell-details-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-height: 36px;
+  padding: 8px 12px;
+
+  border: 1px solid rgba(176, 120, 255, 0.5);
+  border-radius: 6px;
+
+  background: rgba(139, 76, 255, 0.1);
+  color: #c9a4ff;
+
+  font-family: inherit;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.spell-details-button:hover {
+  background: rgba(139, 76, 255, 0.22);
+  border-color: #b78aff;
+  box-shadow: 0 0 14px rgba(157, 94, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Deployment label stays on one line */
+.spell-card-actions .spell-unavailable {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Yuno mode */
+:root[data-magic-mode="yuno"] .spell-card-bottom {
+  border-top-color: #bdcfbe;
+}
+
+:root[data-magic-mode="yuno"] .spell-details-button {
+  border-color: rgba(100, 150, 110, 0.55);
+  background: rgba(95, 145, 100, 0.12);
+  color: #b8d5bc;
+}
+
+:root[data-magic-mode="yuno"] .spell-details-button:hover {
+  border-color: #9bc6a0;
+  background: rgba(95, 145, 100, 0.25);
+  box-shadow: 0 0 14px rgba(130, 180, 135, 0.18);
+}
+
+/* Mobile layout */
+@media (max-width: 480px) {
+  .spell-card-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .spell-card-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 0;
+  }
+}
+
+
+/* =========================================
+   FINAL SPELL CARD FOOTER ALIGNMENT
+   ========================================= */
+
+.spell-card-bottom {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between !important;
+  width: 100%;
+  gap: 12px;
+}
+
+/* Project status stays at the left */
+.spell-card-bottom > .spell-status {
+  flex: 0 0 auto;
+  margin: 0 auto 0 0;
+}
+
+/* Button and deployment status stay grouped at the right */
+.spell-card-bottom > .spell-card-actions {
+  display: flex !important;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end !important;
+  gap: 12px;
+  margin-left: auto !important;
+  flex-wrap: nowrap;
+}
+
+/* Prevent the button and label from wrapping */
+.spell-card-actions .spell-details-button,
+.spell-card-actions .spell-unavailable,
+.spell-card-actions .spell-live-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Keep the button compact and consistent */
+.spell-card-actions .spell-details-button {
+  margin: 0;
+  min-height: 34px;
+  padding: 7px 10px;
+}
+
+/* Yuno theme */
+:root[data-magic-mode="yuno"] .spell-card-bottom {
+  border-top-color: #bdcfbe;
+}
+
+/* Responsive fallback for very narrow cards */
+@media (max-width: 480px) {
+  .spell-card-bottom {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .spell-card-bottom > .spell-card-actions {
+    width: 100%;
+    justify-content: flex-end !important;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE FIX — SPELL BOOK
+   Optimized for 320px to 600px screens
+   ========================================= */
+
+.spell-book-section {
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  /* Section spacing */
+  .spell-book-section {
+    padding: 30px 12px 40px;
+    overflow: clip;
+  }
+
+  .spell-book-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Compact heading */
+  .spell-book-heading {
+    margin-bottom: 30px;
+    padding: 0 6px;
+  }
+
+  .spell-book-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 2.5px;
+  }
+
+  .spell-book-heading h2 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    letter-spacing: 1.5px;
+  }
+
+  .spell-book-heading > p {
+    max-width: 340px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .spell-book-divider {
+    margin-top: 18px;
+  }
+
+  /* One column, no horizontal overflow */
+  .spell-book-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Cards */
+  .spell-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 18px 16px;
+    border-radius: 12px;
+  }
+
+  .spell-card-top {
+    gap: 10px;
+  }
+
+  .spell-symbol {
+    width: 42px;
+    height: 42px;
+    font-size: 1.5rem;
+  }
+
+  .spell-number {
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* Prevent project titles from being clipped */
+  .spell-card-content {
+    min-width: 0;
+    padding: 22px 0;
+  }
+
+  .spell-type {
+    font-size: 0.66rem;
+    letter-spacing: 1.5px;
+  }
+
+  .spell-card-content h3 {
+    font-size: clamp(1.15rem, 5.8vw, 1.5rem);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .spell-subtitle {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .spell-description {
+    font-size: 0.84rem;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+
+  /* Technology tags use available width */
+  .spell-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 18px;
+    min-width: 0;
+  }
+
+  .spell-tech-list span {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    overflow-wrap: anywhere;
+  }
+
+  /* Footer: status on its own row, actions beneath */
+  .spell-card-bottom {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+    padding-top: 16px;
+  }
+
+  .spell-card-bottom > .spell-status {
+    align-self: flex-start;
+    margin: 0;
+  }
+
+  .spell-card-bottom > .spell-card-actions {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between !important;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    margin: 0 !important;
+  }
+
+  .spell-card-actions .spell-details-button {
+    flex: 0 1 auto;
+    min-height: 36px;
+    padding: 8px 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.6px;
+  }
+
+  .spell-card-actions .spell-unavailable {
+    flex: 0 1 auto;
+    font-size: 0.62rem;
+    letter-spacing: 0.6px;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .spell-card-actions .spell-live-button {
+    padding: 9px 10px;
+    font-size: 0.65rem;
+  }
+
+  /* Modal fits small phone screens */
+  .spell-details-backdrop {
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 12px;
+  }
+
+  .spell-details-modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    max-height: 90dvh;
+    margin: auto 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+  .spell-details-header,
+  .spell-details-body {
+    padding: 18px 16px;
+  }
+
+  .spell-details-header {
+    gap: 12px;
+  }
+
+  .spell-details-header h2 {
+    font-size: 1.2rem;
+    overflow-wrap: anywhere;
+  }
+
+  .spell-details-header p,
+  .spell-details-body > p {
+    font-size: 0.84rem;
+  }
+
+  .spell-details-body h3 {
+    font-size: 0.88rem;
+  }
+
+  .spell-details-features {
+    padding-left: 18px;
+    font-size: 0.84rem;
+  }
+
+  .spell-details-tech span {
+    font-size: 0.7rem;
+    overflow-wrap: anywhere;
+  }
+
+  .spell-details-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Extra-small phones: 320px and below */
+@media (max-width: 360px) {
+  .spell-book-section {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .spell-card {
+    padding: 16px 13px;
+  }
+
+  .spell-card-actions {
+    column-gap: 8px;
+  }
+
+  .spell-card-actions .spell-details-button {
+    padding: 8px;
+    font-size: 0.58rem;
+  }
+
+  .spell-card-actions .spell-unavailable {
+    font-size: 0.58rem;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* FIX: Make View Details clearly visible in Yuno mode */
+:root[data-magic-mode="yuno"] .spell-card-actions .spell-details-button {
+  background: #d0e4d1 !important;
+  color: #234a30 !important;
+  border: 1px solid #648b6b !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 8px rgba(35, 74, 48, 0.08);
+}
+
+:root[data-magic-mode="yuno"] .spell-card-actions .spell-details-button span {
+  color: #234a30 !important;
+  opacity: 1 !important;
+}
+
+:root[data-magic-mode="yuno"] .spell-card-actions .spell-details-button:hover {
+  background: #b8d5bc !important;
+  color: #183622 !important;
+  border-color: #477d52 !important;
+  box-shadow: 0 0 14px rgba(71, 125, 82, 0.22);
+  transform: translateY(-1px);
+}
+
+:root[data-magic-mode="yuno"] .spell-card-actions .spell-details-button:focus-visible {
+  outline: 2px solid #477d52;
+  outline-offset: 3px;
+}
+
+/* Yuno mode — Filter Tabs */
+:root[data-magic-mode="yuno"] .spell-filter-tab {
+  border-color: rgba(33, 139, 85, 0.28);
+  background: rgba(226, 237, 226, 0.85);
+  color: #2e4d37;
+  box-shadow: 0 2px 8px rgba(35, 74, 48, 0.08);
+}
+
+:root[data-magic-mode="yuno"] .spell-filter-tab:hover {
+  border-color: #218b55;
+  color: #11341e;
+  box-shadow: 0 4px 14px rgba(33, 139, 85, 0.22);
+}
+
+:root[data-magic-mode="yuno"] .spell-filter-tab:focus-visible {
+  outline: 2px solid #218b55;
+  outline-offset: 3px;
+}
+
+:root[data-magic-mode="yuno"] .spell-filter-tab.active {
+  background: linear-gradient(
+    135deg,
+    rgba(33, 139, 85, 0.26),
+    rgba(46, 125, 50, 0.18)
+  );
+  border-color: #218b55;
+  color: #11341e;
+  box-shadow: 0 0 14px rgba(33, 139, 85, 0.28);
+}
+
+/* Yuno mode — Code button */
+:root[data-magic-mode="yuno"] .spell-code-button {
+  background: #dce9dc;
+  color: #20372a;
+  border-color: rgba(33, 139, 85, 0.35);
+}
+
+:root[data-magic-mode="yuno"] .spell-code-button:hover {
+  background: #cce0cd;
+  color: #11341e;
+  border-color: #218b55;
+  box-shadow: 0 0 12px rgba(33, 139, 85, 0.25);
+}
+
+:root[data-magic-mode="yuno"] .spell-code-button:focus-visible {
+  outline: 2px solid #218b55;
+  outline-offset: 3px;
+}

@@ -1,0 +1,1711 @@
+.magic-attributes-section {
+
+  position: relative;
+
+  isolation: isolate;
+
+  padding: 40px 7vw 55px;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(circle at 50% 25%, rgba(72, 220, 103, 0.045), transparent 46%),
+
+    #050705;
+
+}
+
+.magic-attributes-container {
+
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+}
+
+.magic-heading {
+
+  margin: 0 0 45px;
+
+  text-align: center;
+
+}
+
+.magic-heading-eyebrow {
+
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #79d98b;
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+
+}
+
+.magic-heading h2 {
+
+  margin: 0;
+
+  color: #f5f5f5;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: clamp(2.3rem, 5vw, 4rem);
+
+  letter-spacing: 0.08em;
+
+}
+
+.magic-heading h2 span {
+
+  color: #65d87a;
+
+}
+
+.magic-heading-divider {
+
+  width: 80px;
+
+  height: 2px;
+
+  margin: 24px auto 0;
+
+  background: #65d87a;
+
+  box-shadow: 0 0 15px rgba(101, 216, 122, 0.6);
+
+}
+
+/* ---------- Grid ---------- */
+
+.magic-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  align-items: stretch;
+
+  gap: 22px;
+
+}
+
+/* ---------- Card foundation ---------- */
+
+.magic-card {
+
+  --magic-color: #72e58b;
+
+  position: relative;
+
+  isolation: isolate;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  min-height: 430px;
+
+  height: 100%;
+
+  padding: 26px 24px 24px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border: 1px solid color-mix(in srgb, var(--magic-color) 30%, transparent);
+
+  background:
+
+    linear-gradient(145deg, rgba(15, 31, 18, 0.92), rgba(4, 8, 5, 0.98));
+
+  cursor: default;
+
+  transition:
+
+    border-color 0.3s ease,
+
+    box-shadow 0.3s ease,
+
+    background-color 0.3s ease;
+
+}
+
+.magic-card::before {
+
+  position: absolute;
+
+  z-index: 0;
+
+  top: -90px;
+
+  right: -90px;
+
+  width: 180px;
+
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: color-mix(in srgb, var(--magic-color) 10%, transparent);
+
+  content: "";
+
+  filter: blur(25px);
+
+  pointer-events: none;
+
+  transition: transform 0.5s ease, opacity 0.5s ease;
+
+}
+
+.magic-card:hover::before {
+
+  transform: scale(1.8);
+
+  opacity: 0.9;
+
+}
+
+.magic-card:hover {
+
+  border-color: var(--magic-color);
+
+  box-shadow:
+
+    0 0 24px color-mix(in srgb, var(--magic-color) 18%, transparent),
+
+    inset 0 0 24px color-mix(in srgb, var(--magic-color) 5%, transparent);
+
+}
+
+/* Effects are absolutely positioned behind the readable card content. */
+
+.magic-card > .magic-effect {
+
+  position: absolute;
+
+  z-index: 0;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+
+}
+
+.magic-card > .magic-card-line,
+
+.magic-card > .magic-symbol-container,
+
+.magic-card > .magic-type,
+
+.magic-card > h3,
+
+.magic-card > .magic-description,
+
+.magic-card > .magic-focus,
+
+.magic-card > .magic-rune {
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+/* Decorative top line */
+
+.magic-card-line {
+
+  position: absolute !important;
+
+  z-index: 3 !important;
+
+  top: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--magic-color);
+
+  box-shadow: 0 0 15px color-mix(in srgb, var(--magic-color) 80%, transparent);
+
+  transition: width 0.4s ease;
+
+}
+
+.magic-card:hover .magic-card-line {
+
+  width: 100%;
+
+}
+
+/* ---------- Icon, label, title and description ---------- */
+
+.magic-symbol-container {
+
+  display: flex;
+
+  flex: 0 0 76px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 76px;
+
+  height: 76px;
+
+  margin: 0 auto 16px;
+
+  box-sizing: border-box;
+
+  border: 1px solid color-mix(in srgb, var(--magic-color) 45%, transparent);
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, color-mix(in srgb, var(--magic-color) 9%, transparent), transparent 72%);
+
+  box-shadow: inset 0 0 20px color-mix(in srgb, var(--magic-color) 5%, transparent);
+
+}
+
+.magic-symbol {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  height: 100%;
+
+  color: var(--magic-color);
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 2.35rem;
+
+  line-height: 1;
+
+  text-align: center;
+
+  text-shadow: 0 0 18px color-mix(in srgb, var(--magic-color) 65%, transparent);
+
+  transition: transform 0.4s ease, text-shadow 0.4s ease;
+
+}
+
+.magic-card:hover .magic-symbol {
+
+  transform: scale(1.12) rotate(6deg);
+
+  text-shadow: 0 0 28px color-mix(in srgb, var(--magic-color) 90%, transparent);
+
+}
+
+.magic-type {
+
+  display: block;
+
+  margin: 0 0 10px;
+
+  color: color-mix(in srgb, var(--magic-color) 85%, white);
+
+  font-size: 0.66rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.23em;
+
+  line-height: 1.4;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+}
+
+.magic-card h3 {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 2.65em;
+
+  margin: 0 0 10px;
+
+  color: #f5f5f5;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: clamp(1.12rem, 1.45vw, 1.45rem);
+
+  font-weight: 700;
+
+  letter-spacing: 0.015em;
+
+  line-height: 1.3;
+
+  text-align: center;
+
+  text-wrap: balance;
+
+}
+
+.magic-card .magic-description {
+
+  min-height: 6.2em;
+
+  margin: 0;
+
+  color: rgba(235, 235, 235, 0.62);
+
+  font-size: 0.88rem;
+
+  letter-spacing: 0.08em;
+
+  line-height: 1.6;
+
+  text-align: center;
+
+  overflow-wrap: anywhere;
+
+}
+
+/* ---------- Skill tags and aligned divider ---------- */
+
+.magic-focus {
+
+  display: block;
+
+  width: 100%;
+
+  min-width: 0;
+
+  margin-top: auto;
+
+  padding-top: 14px;
+
+  border-top: 1px solid color-mix(in srgb, var(--magic-color) 25%, transparent);
+
+  box-sizing: border-box;
+
+}
+
+.magic-skill-tags {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-content: flex-start;
+
+  justify-content: flex-start;
+
+  gap: 6px;
+
+  width: 100%;
+
+  min-width: 0;
+
+  min-height: 48px;
+
+}
+
+.magic-skill-tag {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  max-width: 100%;
+
+  margin: 0;
+
+  padding: 4px 9px;
+
+  border: 1px solid color-mix(in srgb, var(--magic-color) 38%, transparent);
+
+  border-radius: 999px;
+
+  background: color-mix(in srgb, var(--magic-color) 7%, transparent);
+
+  color: rgba(235, 245, 238, 0.72);
+
+  font-size: 0.68rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+
+  text-align: center;
+
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+
+}
+
+.magic-card:hover .magic-skill-tag {
+
+  border-color: color-mix(in srgb, var(--magic-color) 65%, transparent);
+
+  background: color-mix(in srgb, var(--magic-color) 13%, transparent);
+
+  color: #f5fff6;
+
+}
+
+/* Decorative runes */
+
+.magic-rune {
+
+  position: absolute !important;
+
+  z-index: 2 !important;
+
+  right: 12px;
+
+  bottom: 8px;
+
+  display: flex;
+
+  gap: 5px;
+
+  color: var(--magic-color);
+
+  font-size: 0.45rem;
+
+  opacity: 0.3;
+
+}
+
+/* ---------- Element colors ---------- */
+
+.magic-java { --magic-color: #39cfff; }
+
+.magic-javascript { --magic-color: #ff7a24; }
+
+.magic-react { --magic-color: #61e6c0; }
+
+.magic-springboot { --magic-color: #b78aff; }
+
+.magic-postgresql { --magic-color: #56a8ff; }
+
+.magic-github { --magic-color: #72e58b; }
+
+/* ---------- Lightning Magic ---------- */
+
+.lightning-effect {
+
+  background: radial-gradient(circle at 72% 18%, rgba(70, 210, 255, 0.12), transparent 42%);
+
+}
+
+.lightning-bolt {
+
+  position: absolute;
+
+  color: #c5f7ff;
+
+  font-size: 4.5rem;
+
+  opacity: 0;
+
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 18px #249dff);
+
+}
+
+.lightning-bolt-one { top: 0; right: 12%; }
+
+.lightning-bolt-two { top: 28%; left: 10%; font-size: 3rem; }
+
+.lightning-flash {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(circle at 70% 20%, rgba(130, 235, 255, 0.28), transparent 42%);
+
+  opacity: 0;
+
+}
+
+.magic-java:hover .lightning-effect,
+
+.magic-java:active .lightning-effect { opacity: 1; }
+
+.magic-java:hover .lightning-bolt-one,
+
+.magic-java:active .lightning-bolt-one { animation: lightningStrike 0.8s ease-out infinite; }
+
+.magic-java:hover .lightning-bolt-two,
+
+.magic-java:active .lightning-bolt-two { animation: lightningStrikeTwo 0.9s ease-out 0.12s infinite; }
+
+.magic-java:hover .lightning-flash,
+
+.magic-java:active .lightning-flash { animation: lightningFlash 0.8s ease-out infinite; }
+
+@keyframes lightningStrike {
+
+  0% { opacity: 0; transform: translateY(-45px) scale(0.55) rotate(-15deg); }
+
+  25%, 45% { opacity: 1; }
+
+  100% { opacity: 0; transform: translateY(115px) scale(0.85) rotate(10deg); }
+
+}
+
+@keyframes lightningStrikeTwo {
+
+  0% { opacity: 0; transform: translate(-30px, -15px) rotate(-20deg); }
+
+  35% { opacity: 1; }
+
+  100% { opacity: 0; transform: translate(65px, 90px) rotate(15deg); }
+
+}
+
+@keyframes lightningFlash {
+
+  0%, 100% { opacity: 0; }
+
+  15% { opacity: 1; }
+
+  35% { opacity: 0.2; }
+
+  50% { opacity: 0.75; }
+
+}
+
+/* ---------- Fire Magic ---------- */
+
+.fire-glow {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -115px;
+
+  width: 320px;
+
+  height: 230px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(ellipse at center bottom, rgba(255, 245, 150, 0.5), rgba(255, 100, 0, 0.25) 42%, transparent 74%);
+
+  filter: blur(12px);
+
+  opacity: 0;
+
+}
+
+.flame {
+
+  position: absolute;
+
+  bottom: -22px;
+
+  width: 42px;
+
+  height: 88px;
+
+  border-radius: 50% 50% 28% 28%;
+
+  background: radial-gradient(ellipse at 50% 80%, #fffbd0 0%, #ffe76a 15%, #ff9c24 38%, #ff4017 65%, transparent 77%);
+
+  filter: blur(2px) drop-shadow(0 0 14px rgba(255, 80, 10, 0.7));
+
+  opacity: 0;
+
+  transform-origin: center bottom;
+
+}
+
+.flame-one { left: 12%; }
+
+.flame-two { left: 37%; width: 58px; height: 120px; }
+
+.flame-three { left: 68%; }
+
+.flame-four { left: 24%; width: 32px; height: 72px; }
+
+.flame-five { right: 13%; width: 35px; height: 80px; }
+
+.fire-ember {
+
+  position: absolute;
+
+  bottom: 8%;
+
+  z-index: 1;
+
+  color: #fff1a0;
+
+  font-size: 17px;
+
+  text-shadow: 0 0 6px #fff, 0 0 15px #ff9b25, 0 0 25px #ff3d0b;
+
+  opacity: 0;
+
+}
+
+.fire-ember-one { left: 25%; }
+
+.fire-ember-two { left: 68%; }
+
+.fire-ember-three { left: 43%; }
+
+.fire-ember-four { left: 82%; }
+
+.magic-javascript:hover .fire-effect,
+
+.magic-javascript:active .fire-effect { opacity: 1; }
+
+.magic-javascript:hover .fire-glow,
+
+.magic-javascript:active .fire-glow { animation: infernoGlow 1.2s ease-in-out infinite alternate; }
+
+.magic-javascript:hover .flame-one,
+
+.magic-javascript:active .flame-one { animation: infernoFlame 0.85s ease-in-out infinite alternate; }
+
+.magic-javascript:hover .flame-two,
+
+.magic-javascript:active .flame-two { animation: infernoFlame 0.65s ease-in-out infinite alternate-reverse; }
+
+.magic-javascript:hover .flame-three,
+
+.magic-javascript:active .flame-three { animation: infernoFlame 0.95s ease-in-out infinite alternate; }
+
+.magic-javascript:hover .flame-four,
+
+.magic-javascript:active .flame-four { animation: infernoFlame 0.7s ease-in-out infinite alternate-reverse; }
+
+.magic-javascript:hover .flame-five,
+
+.magic-javascript:active .flame-five { animation: infernoFlame 0.8s ease-in-out infinite alternate; }
+
+.magic-javascript:hover .fire-ember,
+
+.magic-javascript:active .fire-ember { animation: emberRise 1.5s ease-out infinite; }
+
+.magic-javascript:hover .fire-ember-two,
+
+.magic-javascript:active .fire-ember-two { animation-delay: -0.7s; }
+
+.magic-javascript:hover .fire-ember-three,
+
+.magic-javascript:active .fire-ember-three { animation-delay: -1.1s; }
+
+.magic-javascript:hover .fire-ember-four,
+
+.magic-javascript:active .fire-ember-four { animation-delay: -0.4s; }
+
+@keyframes infernoGlow {
+
+  from { opacity: 0.45; transform: translateX(-50%) scale(0.9); }
+
+  to { opacity: 0.95; transform: translateX(-50%) scale(1.1); }
+
+}
+
+@keyframes infernoFlame {
+
+  0% { opacity: 0.35; transform: scaleY(0.7) scaleX(0.9) rotate(-7deg); }
+
+  50% { opacity: 0.9; }
+
+  100% { opacity: 0.72; transform: scaleY(1.3) scaleX(1.08) rotate(7deg); }
+
+}
+
+@keyframes emberRise {
+
+  0% { transform: translateY(0) scale(0.5) rotate(0); opacity: 0; }
+
+  15% { opacity: 1; }
+
+  100% { transform: translateY(-110px) scale(1.2) rotate(180deg); opacity: 0; }
+
+}
+
+/* ---------- Wind Magic ---------- */
+
+.wind-vortex {
+
+  position: absolute;
+
+  top: 28%;
+
+  left: 50%;
+
+  width: 125px;
+
+  height: 125px;
+
+  box-sizing: border-box;
+
+  border: 2px solid rgba(130, 255, 224, 0.6);
+
+  border-left-color: transparent;
+
+  border-bottom-color: rgba(210, 255, 246, 0.9);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 15px rgba(97, 230, 192, 0.28), inset 0 0 18px rgba(97, 230, 192, 0.1);
+
+  opacity: 0;
+
+}
+
+.wind-trail {
+
+  position: absolute;
+
+  left: -35%;
+
+  width: 90%;
+
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(90deg, transparent, rgba(97, 230, 192, 0.65), #d8fff5, rgba(97, 230, 192, 0.9), transparent);
+
+  box-shadow: 0 0 8px rgba(97, 230, 192, 0.6);
+
+  opacity: 0;
+
+}
+
+.wind-trail-one { top: 28%; }
+
+.wind-trail-two { top: 39%; }
+
+.wind-trail-three { top: 50%; }
+
+.wind-trail-four { top: 61%; }
+
+.wind-trail-five { top: 72%; }
+
+.wind-trail-six { top: 83%; }
+
+.wind-particle {
+
+  position: absolute;
+
+  width: auto;
+
+  height: auto;
+
+  color: #d9fff7;
+
+  font-size: 23px;
+
+  text-shadow: 0 0 8px #fff, 0 0 20px #61e6c0;
+
+  opacity: 0;
+
+  background: none;
+
+}
+
+.wind-particle-one { top: 24%; right: 20%; }
+
+.wind-particle-two { bottom: 22%; left: 20%; }
+
+.magic-react:hover .wind-effect,
+
+.magic-react:active .wind-effect { opacity: 1; }
+
+.magic-react:hover .wind-vortex,
+
+.magic-react:active .wind-vortex { animation: cycloneSpin 2s linear infinite; opacity: 1; }
+
+.magic-react:hover .wind-trail,
+
+.magic-react:active .wind-trail { animation: cycloneSweep 1.15s ease-in-out infinite; }
+
+.magic-react:hover .wind-trail-two,
+
+.magic-react:active .wind-trail-two { animation-delay: -0.35s; }
+
+.magic-react:hover .wind-trail-three,
+
+.magic-react:active .wind-trail-three { animation-delay: -0.7s; }
+
+.magic-react:hover .wind-trail-four,
+
+.magic-react:active .wind-trail-four { animation-delay: -1s; }
+
+.magic-react:hover .wind-trail-five,
+
+.magic-react:active .wind-trail-five { animation-delay: -0.5s; }
+
+.magic-react:hover .wind-trail-six,
+
+.magic-react:active .wind-trail-six { animation-delay: -1.2s; }
+
+.magic-react:hover .wind-particle,
+
+.magic-react:active .wind-particle { animation: cycloneParticle 1.5s ease-in-out infinite alternate; }
+
+@keyframes cycloneSpin {
+
+  from { transform: translate(-50%, 0) rotate(0); }
+
+  to { transform: translate(-50%, 0) rotate(360deg); }
+
+}
+
+@keyframes cycloneSweep {
+
+  0% { transform: translateX(-15%) scaleX(0.4); opacity: 0; }
+
+  35% { opacity: 0.9; }
+
+  100% { transform: translateX(160%) scaleX(1.1); opacity: 0; }
+
+}
+
+@keyframes cycloneParticle {
+
+  from { transform: translate(0, 8px) rotate(-15deg); opacity: 0.35; }
+
+  to { transform: translate(10px, -15px) rotate(20deg); opacity: 1; }
+
+}
+
+/* ---------- Dark Magic ---------- */
+
+.dark-orb {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  width: 210px;
+
+  height: 210px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(80, 20, 130, 0.38), rgba(10, 0, 25, 0.25) 48%, transparent 72%);
+
+  filter: blur(10px);
+
+  opacity: 0;
+
+}
+
+.dark-ring {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  width: 155px;
+
+  height: 155px;
+
+  box-sizing: border-box;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(170, 100, 255, 0.7);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 30px rgba(130, 60, 255, 0.35), inset 0 0 22px rgba(130, 60, 255, 0.15);
+
+  opacity: 0;
+
+}
+
+.magic-springboot:hover .dark-effect,
+
+.magic-springboot:active .dark-effect { opacity: 1; }
+
+.magic-springboot:hover .dark-orb,
+
+.magic-springboot:active .dark-orb { animation: darkPulse 1.5s ease-in-out infinite; }
+
+.magic-springboot:hover .dark-ring,
+
+.magic-springboot:active .dark-ring { animation: darkRotate 5s linear infinite; opacity: 1; }
+
+@keyframes darkPulse {
+
+  0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.35; }
+
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.85; }
+
+}
+
+@keyframes darkRotate {
+
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+
+}
+
+/* ---------- Water Magic ---------- */
+
+.water-ring {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  width: 90px;
+
+  height: 90px;
+
+  box-sizing: border-box;
+
+  transform: translate(-50%, -50%);
+
+  border: 2px solid rgba(80, 180, 255, 0.7);
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+}
+
+.water-drop {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  color: #69c9ff;
+
+  font-size: 3.8rem;
+
+  line-height: 1;
+
+  text-shadow: 0 0 20px rgba(80, 180, 255, 0.8);
+
+}
+
+.magic-postgresql:hover .water-effect,
+
+.magic-postgresql:active .water-effect { opacity: 1; }
+
+.magic-postgresql:hover .water-ring-one,
+
+.magic-postgresql:active .water-ring-one { animation: waterRipple 1.5s ease-out infinite; }
+
+.magic-postgresql:hover .water-ring-two,
+
+.magic-postgresql:active .water-ring-two { animation: waterRipple 1.5s ease-out 0.45s infinite; }
+
+.magic-postgresql:hover .water-drop,
+
+.magic-postgresql:active .water-drop { animation: waterFloat 1.5s ease-in-out infinite; }
+
+@keyframes waterRipple {
+
+  0% { transform: translate(-50%, -50%) scale(0.35); opacity: 0.85; }
+
+  100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+
+}
+
+@keyframes waterFloat {
+
+  0%, 100% { transform: translate(-50%, -50%) translateY(8px); }
+
+  50% { transform: translate(-50%, -50%) translateY(-12px); }
+
+}
+
+/* ---------- Nature Magic ---------- */
+
+.nature-aura {
+
+  position: absolute;
+
+  inset: 8%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(ellipse, rgba(100, 255, 120, 0.18), rgba(50, 200, 100, 0.08) 48%, transparent 72%);
+
+  opacity: 0;
+
+}
+
+.nature-leaf {
+
+  position: absolute;
+
+  top: -15%;
+
+  color: #72ed8b;
+
+  font-size: 21px;
+
+  filter: drop-shadow(0 0 7px rgba(100, 255, 130, 0.5));
+
+  opacity: 0;
+
+}
+
+.nature-leaf-one { left: 12%; }
+
+.nature-leaf-two { left: 30%; }
+
+.nature-leaf-three { left: 49%; }
+
+.nature-leaf-four { left: 68%; }
+
+.nature-leaf-five { left: 83%; }
+
+.nature-leaf-six { left: 40%; }
+
+.nature-spark {
+
+  position: absolute;
+
+  color: #a8ff9c;
+
+  font-size: 17px;
+
+  text-shadow: 0 0 12px #57ff70;
+
+  opacity: 0;
+
+}
+
+.nature-spark-one { top: 30%; left: 22%; }
+
+.nature-spark-two { top: 55%; right: 18%; }
+
+.nature-spark-three { bottom: 18%; left: 55%; }
+
+.magic-github:hover .nature-effect,
+
+.magic-github:active .nature-effect { opacity: 1; }
+
+.magic-github:hover .nature-aura,
+
+.magic-github:active .nature-aura { animation: naturePulse 2.2s ease-in-out infinite alternate; }
+
+.magic-github:hover .nature-leaf,
+
+.magic-github:active .nature-leaf { animation: leafFall 3.5s linear infinite; }
+
+.magic-github:hover .nature-leaf-two,
+
+.magic-github:active .nature-leaf-two { animation-delay: -2.2s; }
+
+.magic-github:hover .nature-leaf-three,
+
+.magic-github:active .nature-leaf-three { animation-delay: -1.2s; }
+
+.magic-github:hover .nature-leaf-four,
+
+.magic-github:active .nature-leaf-four { animation-delay: -3s; }
+
+.magic-github:hover .nature-leaf-five,
+
+.magic-github:active .nature-leaf-five { animation-delay: -1.8s; }
+
+.magic-github:hover .nature-leaf-six,
+
+.magic-github:active .nature-leaf-six { animation-delay: -2.8s; }
+
+.magic-github:hover .nature-spark,
+
+.magic-github:active .nature-spark { animation: natureSparkle 1.7s ease-in-out infinite alternate; }
+
+.magic-github:hover .nature-spark-two,
+
+.magic-github:active .nature-spark-two { animation-delay: -0.8s; }
+
+.magic-github:hover .nature-spark-three,
+
+.magic-github:active .nature-spark-three { animation-delay: -1.2s; }
+
+@keyframes naturePulse {
+
+  from { transform: scale(0.85); opacity: 0.4; }
+
+  to { transform: scale(1.08); opacity: 1; }
+
+}
+
+@keyframes leafFall {
+
+  0% { transform: translate(0, -10px) rotate(0deg); opacity: 0; }
+
+  12% { opacity: 1; }
+
+  50% { transform: translate(22px, 100px) rotate(150deg); }
+
+  85% { opacity: 0.9; }
+
+  100% { transform: translate(-15px, 220px) rotate(320deg); opacity: 0; }
+
+}
+
+@keyframes natureSparkle {
+
+  from { transform: scale(0.65) rotate(0deg); opacity: 0.4; }
+
+  to { transform: scale(1.3) rotate(45deg); opacity: 1; }
+
+}
+
+/* ---------- Tablet and mobile ---------- */
+
+@media (max-width: 950px) {
+
+  .magic-attributes-section { padding: 80px 5vw; }
+
+  .magic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .magic-card { min-height: 420px; }
+
+  .magic-card h3 { font-size: 1.25rem; }
+
+}
+
+@media (max-width: 650px) {
+
+  .magic-attributes-section { padding: 60px 5vw; }
+
+  .magic-heading { margin-bottom: 32px; }
+
+  .magic-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+
+  .magic-card {
+
+    min-height: 0;
+
+    height: auto;
+
+    padding: 20px 16px;
+
+  }
+
+  .magic-symbol-container {
+
+    width: 58px;
+
+    height: 58px;
+
+    flex-basis: 58px;
+
+    margin-bottom: 12px;
+
+  }
+
+  .magic-symbol { font-size: 1.9rem; }
+
+  .magic-card h3 { min-height: 0; font-size: 1.25rem; line-height: 1.3; }
+
+  .magic-card .magic-description { min-height: 0; font-size: 0.82rem; letter-spacing: 0.035em; }
+
+  .magic-focus { margin-top: 16px; padding-top: 12px; }
+
+  .magic-skill-tags { min-height: 0; gap: 6px; }
+
+  .magic-skill-tag { padding: 4px 8px; font-size: 0.66rem; }
+
+}
+
+/* ---------- Accessibility ---------- */
+
+@media (hover: none) {
+
+  .magic-card {
+
+    -webkit-tap-highlight-color: transparent;
+
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .magic-card,
+
+  .magic-card \*,
+
+  .magic-card::before {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+  }
+
+}
+
+/* Security Engineering — Dark Magic inspired security aura */
+
+.magic-security {
+
+  --magic-color: #b78aff;
+
+}
+
+.security-effect {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  color: #c9a7ff;
+
+}
+
+.security-orb {
+
+  position: absolute;
+
+  width: 150px;
+
+  height: 150px;
+
+  left: 50%;
+
+  top: 42%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+
+    circle,
+
+    rgba(168, 85, 247, 0.2) 0%,
+
+    rgba(126, 34, 206, 0.09) 42%,
+
+    transparent 72%
+
+  );
+
+  animation: security-pulse 3s ease-in-out infinite;
+
+}
+
+.security-ring {
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 42%;
+
+  width: 112px;
+
+  height: 112px;
+
+  border: 1px solid rgba(183, 138, 255, 0.42);
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+}
+
+.security-ring-one {
+
+  border-style: dashed;
+
+  animation: security-spin 14s linear infinite;
+
+}
+
+.security-ring-two {
+
+  width: 88px;
+
+  height: 88px;
+
+  border-color: rgba(183, 138, 255, 0.65);
+
+  border-top-color: transparent;
+
+  border-bottom-color: transparent;
+
+  animation: security-spin-reverse 9s linear infinite;
+
+}
+
+.security-shield {
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 42%;
+
+  width: 58px;
+
+  height: 58px;
+
+  transform: translate(-50%, -50%);
+
+  filter: drop-shadow(0 0 9px rgba(183, 138, 255, 0.75));
+
+  animation: security-float 3s ease-in-out infinite;
+
+}
+
+.security-shield svg {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+.security-rune {
+
+  position: absolute;
+
+  color: #d8c0ff;
+
+  text-shadow: 0 0 10px #a855f7;
+
+  animation: security-rune-glow 2.5s ease-in-out infinite;
+
+}
+
+.security-rune-one {
+
+  left: 23%;
+
+  top: 29%;
+
+}
+
+.security-rune-two {
+
+  right: 22%;
+
+  top: 48%;
+
+  animation-delay: 0.6s;
+
+}
+
+.security-rune-three {
+
+  left: 36%;
+
+  top: 61%;
+
+  animation-delay: 1.2s;
+
+}
+
+@keyframes security-spin {
+
+  to {
+
+    transform: translate(-50%, -50%) rotate(360deg);
+
+  }
+
+}
+
+@keyframes security-spin-reverse {
+
+  to {
+
+    transform: translate(-50%, -50%) rotate(-360deg);
+
+  }
+
+}
+
+@keyframes security-pulse {
+
+  0%, 100% {
+
+    opacity: 0.55;
+
+    scale: 0.92;
+
+  }
+
+  50% {
+
+    opacity: 1;
+
+    scale: 1.08;
+
+  }
+
+}
+
+@keyframes security-float {
+
+  0%, 100% {
+
+    translate: 0 0;
+
+  }
+
+  50% {
+
+    translate: 0 -5px;
+
+  }
+
+}
+
+@keyframes security-rune-glow {
+
+  0%, 100% {
+
+    opacity: 0.55;
+
+    text-shadow: 0 0 5px #a855f7;
+
+  }
+
+  50% {
+
+    opacity: 1;
+
+    text-shadow: 0 0 14px #c084fc;
+
+  }
+
+}
+
+/* =========================================================
+   ASTA / YUNO THEME SUPPORT
+   Theme affects the section surface and text. Individual
+   technology effects retain their own signature colors.
+   ========================================================= */
+
+:root[data-magic-mode="asta"] .magic-attributes-section {
+  background:
+    radial-gradient(circle at 50% 25%, rgba(183, 138, 255, 0.09), transparent 46%),
+    #080510;
+}
+
+:root[data-magic-mode="asta"] .magic-heading-eyebrow {
+  color: #c7a7ff;
+}
+
+:root[data-magic-mode="asta"] .magic-heading h2 {
+  color: #f5f0ff;
+}
+
+:root[data-magic-mode="asta"] .magic-heading h2 span,
+:root[data-magic-mode="asta"] .magic-heading-divider {
+  color: #b78aff;
+  background-color: #b78aff;
+  box-shadow: 0 0 15px rgba(183, 138, 255, 0.45);
+}
+
+:root[data-magic-mode="asta"] .magic-card {
+  background: linear-gradient(145deg, rgba(25, 15, 39, 0.96), rgba(8, 5, 16, 0.99));
+}
+
+:root[data-magic-mode="asta"] .magic-card h3 {
+  color: #f5f0ff;
+}
+
+:root[data-magic-mode="asta"] .magic-card .magic-description {
+  color: rgba(235, 226, 248, 0.72);
+}
+
+:root[data-magic-mode="asta"] .magic-skill-tag {
+  color: rgba(245, 240, 255, 0.82);
+}
+
+/* Yuno: pale green section, white cards, readable dark text */
+:root[data-magic-mode="yuno"] .magic-attributes-section {
+  background:
+    radial-gradient(circle at 50% 25%, rgba(33, 139, 85, 0.10), transparent 46%),
+    #f4faf5;
+}
+
+:root[data-magic-mode="yuno"] .magic-heading-eyebrow {
+  color: #218b55;
+}
+
+:root[data-magic-mode="yuno"] .magic-heading h2 {
+  color: #182b20;
+}
+
+:root[data-magic-mode="yuno"] .magic-heading h2 span {
+  color: #218b55;
+}
+
+:root[data-magic-mode="yuno"] .magic-heading-divider {
+  background: #218b55;
+  box-shadow: 0 0 12px rgba(33, 139, 85, 0.18);
+}
+
+:root[data-magic-mode="yuno"] .magic-card {
+  background: linear-gradient(145deg, #ffffff, #edf7ef);
+}
+
+:root[data-magic-mode="yuno"] .magic-card h3 {
+  color: #182b20;
+}
+
+:root[data-magic-mode="yuno"] .magic-card .magic-description {
+  color: #53675a;
+}
+
+:root[data-magic-mode="yuno"] .magic-skill-tag {
+  color: #365543;
+}
+
+:root[data-magic-mode="yuno"] .magic-card:hover .magic-skill-tag {
+  color: #182b20;
+}
+/* ---------- Security Engineering — Dark Magic ---------- */
+
+.magic-security:hover .security-effect,
+.magic-security:active .security-effect {
+  opacity: 1;
+}
+
+.magic-security:hover .security-orb,
+.magic-security:active .security-orb {
+  animation: darkPulse 1.5s ease-in-out infinite;
+}
+
+.magic-security:hover .security-ring-one,
+.magic-security:active .security-ring-one {
+  animation: darkRotate 5s linear infinite;
+  opacity: 1;
+}
+
+.magic-security:hover .security-ring-two,
+.magic-security:active .security-ring-two {
+  animation: darkRotate 3s linear infinite reverse;
+  opacity: 1;
+}
+
+.magic-security:hover .security-shield,
+.magic-security:active .security-shield {
+  animation: security-float 1.5s ease-in-out infinite;
+}
+
+.magic-security:hover .security-rune,
+.magic-security:active .security-rune {
+  animation: security-rune-glow 1.2s ease-in-out infinite;
+}
+/* YUNO — alternating sage and emerald */
+
+:root[data-magic-mode="yuno"] .magic-attributes-section {
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(33, 139, 85, 0.10),
+      transparent 46%
+    ),
+    #e2ede2;
+}
+
+:root[data-magic-mode="yuno"] .magic-card {
+  background: linear-gradient(
+    145deg,
+    #eaf3e9,
+    #d2e4d3
+  );
+  border-color: rgba(31, 109, 67, 0.22);
+}
+
+:root[data-magic-mode="yuno"] .magic-card:hover {
+  background: linear-gradient(
+    145deg,
+    #dcebdc,
+    #c5ddc8
+  );
+  border-color: #218b55;
+  box-shadow: 0 12px 28px rgba(31, 109, 67, 0.12);
+}
+
+:root[data-magic-mode="yuno"] .magic-card h3 {
+  color: #1f3928;
+}
+
+:root[data-magic-mode="yuno"] .magic-card .magic-description {
+  color: #465b4c;
+}
+
+:root[data-magic-mode="yuno"] .magic-skill-tag {
+  color: #365543;
+}

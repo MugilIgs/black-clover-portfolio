@@ -1,0 +1,42 @@
+.magic-clover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  color: var(--clover-color, #35c978);
+}
+
+.magic-clover svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Asta Mode: Five-leaf clover */
+:root[data-magic-mode="asta"] .magic-clover .clover-five {
+  display: block;
+}
+
+:root[data-magic-mode="asta"] .magic-clover .clover-four {
+  display: none;
+}
+
+/* Yuno Mode: Four-leaf clover */
+:root[data-magic-mode="yuno"] .magic-clover .clover-four {
+  display: block;
+}
+
+:root[data-magic-mode="yuno"] .magic-clover .clover-five {
+  display: none;
+}
+
+/* Theme colors */
+:root[data-magic-mode="asta"] .magic-clover {
+  --clover-color: #ff244f;
+}
+
+:root[data-magic-mode="yuno"] .magic-clover {
+  --clover-color: #35c978;
+}

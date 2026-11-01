@@ -1,0 +1,151 @@
+/* =========================================
+   BACK TO TOP — CLOVER ASCENT BUTTON
+   Asta: Dark Violet | Yuno: Sage Green
+   ========================================= */
+
+.back-to-top {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(183, 138, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(18, 12, 28, 0.82);
+  backdrop-filter: blur(10px);
+  color: #b78aff;
+  cursor: pointer;
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.45),
+    0 0 16px rgba(183, 138, 255, 0.22);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.back-to-top-arrow {
+  font-size: 0.62rem;
+  line-height: 1;
+  margin-bottom: 2px;
+  transition: transform 0.25s ease;
+}
+
+.back-to-top-clover {
+  font-size: 0.92rem;
+  line-height: 1;
+}
+
+.back-to-top:hover {
+  border-color: #c084fc;
+  background: rgba(30, 18, 48, 0.92);
+  color: #ffffff;
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(183, 138, 255, 0.45);
+}
+
+.back-to-top:hover .back-to-top-arrow {
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #b78aff;
+  outline-offset: 3px;
+}
+
+.back-to-top-aura {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(183, 138, 255, 0.25) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0.6;
+  animation: back-to-top-pulse 2.4s infinite ease-in-out;
+}
+
+@keyframes back-to-top-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+}
+
+/* =========================================
+   YUNO MODE OVERRIDES
+   ========================================= */
+
+:root[data-magic-mode="yuno"] .back-to-top {
+  border-color: rgba(33, 139, 85, 0.45);
+  background: rgba(226, 237, 226, 0.88);
+  color: #218b55;
+  box-shadow:
+    0 4px 18px rgba(32, 70, 42, 0.16),
+    0 0 16px rgba(33, 139, 85, 0.2);
+}
+
+:root[data-magic-mode="yuno"] .back-to-top:hover {
+  border-color: #218b55;
+  background: rgba(210, 228, 211, 0.95);
+  color: #11341e;
+  box-shadow:
+    0 6px 24px rgba(32, 70, 42, 0.24),
+    0 0 24px rgba(33, 139, 85, 0.4);
+}
+
+:root[data-magic-mode="yuno"] .back-to-top:focus-visible {
+  outline: 2px solid #218b55;
+}
+
+:root[data-magic-mode="yuno"] .back-to-top-aura {
+  background: radial-gradient(
+    circle,
+    rgba(33, 139, 85, 0.28) 0%,
+    transparent 70%
+  );
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .back-to-top {
+    right: 18px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .back-to-top-clover {
+    font-size: 0.85rem;
+  }
+
+  .back-to-top-arrow {
+    font-size: 0.58rem;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top,
+  .back-to-top-arrow,
+  .back-to-top-aura {
+    animation: none !important;
+    transition: none !important;
+  }
+}

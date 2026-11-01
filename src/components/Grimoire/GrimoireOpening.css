@@ -1,0 +1,733 @@
+
+/* =====================================
+   GRIMOIRE OPENING SCREEN
+===================================== */
+
+.grimoire-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  background: #000;
+  perspective: 1800px;
+  isolation: isolate;
+}
+
+.opening-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(40, 110, 40, 0.15),
+      transparent 40%
+    ),
+    #000;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =====================================
+   MAGIC ACTIVATION
+===================================== */
+
+.activation {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.magic-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.magic-circle-outer {
+  width: min(75vw, 760px);
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(120, 255, 100, 0.55);
+
+  box-shadow:
+    0 0 25px rgba(80, 230, 80, 0.2),
+    inset 0 0 40px rgba(80, 230, 80, 0.08);
+}
+
+.magic-circle-inner {
+  width: min(48vw, 480px);
+  aspect-ratio: 1;
+
+  border: 1px dashed rgba(160, 255, 130, 0.5);
+
+  box-shadow:
+    0 0 25px rgba(80, 230, 80, 0.15),
+    inset 0 0 30px rgba(80, 230, 80, 0.08);
+}
+
+.opening-clover {
+  position: relative;
+  z-index: 10;
+
+  font-size: clamp(65px, 10vw, 140px);
+
+  filter:
+    drop-shadow(0 0 15px rgba(100, 255, 100, 1))
+    drop-shadow(0 0 50px rgba(60, 240, 80, 0.8))
+    drop-shadow(0 0 100px rgba(50, 220, 50, 0.4));
+}
+
+.energy-burst {
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border: 2px solid rgba(150, 255, 120, 0.9);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 30px rgba(100, 255, 100, 0.9),
+    0 0 80px rgba(80, 240, 80, 0.6),
+    0 0 140px rgba(70, 220, 60, 0.3);
+}
+
+/* =====================================
+   GRIMOIRE STAGE
+===================================== */
+
+.grimoire-stage {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+  max-width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  transform: scale(0.6) rotateY(-25deg);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+
+/* =====================================
+   BOOK GLOW
+===================================== */
+
+.book-glow {
+  position: absolute;
+
+  width: min(500px, 100vw);
+  aspect-ratio: 1;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+  background: rgba(70, 220, 70, 0.25);
+  filter: blur(80px);
+  opacity: 0.2;
+
+  pointer-events: none;
+}
+
+/* =====================================
+   BOOK
+===================================== */
+
+.book {
+  position: relative;
+
+  width: min(500px, calc(100vw - 32px));
+  aspect-ratio: 10 / 7;
+  height: auto;
+
+  transform-style: preserve-3d;
+}
+
+/* =====================================
+   BOOK COVERS
+===================================== */
+
+.book-left,
+.book-right {
+  position: absolute;
+  top: 0;
+
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    135deg,
+    #182819,
+    #071007 55%,
+    #102010
+  );
+
+  border: 1px solid rgba(130, 190, 100, 0.7);
+
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(70, 200, 70, 0.08);
+
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.book-left {
+  left: 0;
+  transform-origin: right center;
+  border-radius: 10px 0 0 10px;
+}
+
+.book-right {
+  right: 0;
+  transform-origin: left center;
+  border-radius: 0 10px 10px 0;
+}
+
+/* =====================================
+   BOOK COVER CONTENT
+===================================== */
+
+.book-cover-content {
+  position: absolute;
+  inset: clamp(8px, 4%, 20px);
+
+  border: 1px solid rgba(130, 210, 110, 0.35);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.book-clover {
+  font-size: clamp(28px, 8vw, 65px);
+  margin-bottom: clamp(5px, 2vw, 15px);
+
+  filter:
+    drop-shadow(0 0 12px rgba(100, 255, 100, 0.8));
+}
+
+.book-symbol {
+  font-size: clamp(26px, 7vw, 55px);
+  color: #92e86f;
+
+  text-shadow:
+    0 0 20px rgba(100, 255, 100, 0.7);
+
+  margin-bottom: clamp(5px, 2vw, 20px);
+}
+
+.book-cover-content h2 {
+  margin: 0;
+
+  font-family: "Cinzel", serif;
+  font-size: clamp(12px, 4.5vw, 25px);
+  letter-spacing: 0.08em;
+
+  color: #eef5e9;
+  overflow-wrap: anywhere;
+}
+
+.book-cover-content p {
+  margin: 8px 2px 0;
+
+  font-size: clamp(6px, 1.8vw, 8px);
+  letter-spacing: clamp(0.04em, 0.5vw, 0.25em);
+  line-height: 1.5;
+
+  color: #8fd378;
+  overflow-wrap: anywhere;
+}
+
+/* =====================================
+   INNER PAGES
+===================================== */
+
+.book-pages {
+  position: absolute;
+  inset: 5px 10%;
+
+  z-index: -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(6px, 2vw, 10px);
+
+  padding: 10px;
+  min-width: 0;
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle,
+    #eff7df,
+    #cbd6bb
+  );
+
+  color: #182016;
+  text-align: center;
+
+  opacity: 0;
+  transform: scale(0.95);
+
+  box-shadow:
+    0 0 50px rgba(160, 255, 120, 0.8),
+    0 0 100px rgba(100, 240, 80, 0.3);
+}
+
+.book-pages span {
+  max-width: 100%;
+
+  font-size: clamp(8px, 2.5vw, 10px);
+  letter-spacing: clamp(0.04em, 0.7vw, 0.4em);
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+.book-pages strong {
+  max-width: 100%;
+
+  font-family: "Cinzel", serif;
+  font-size: clamp(19px, 7vw, 35px);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+
+  overflow-wrap: anywhere;
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+  .grimoire-opening {
+    perspective: 1000px;
+  }
+
+  .magic-circle-outer {
+    width: min(88vw, 420px);
+  }
+
+  .magic-circle-inner {
+    width: min(62vw, 300px);
+  }
+
+  .book {
+    width: calc(100vw - 36px);
+    max-width: 440px;
+  }
+
+  .book-cover-content {
+    inset: 6px;
+  }
+
+  .book-pages {
+    inset: 4px 8%;
+    padding: 6px;
+    gap: 5px;
+  }
+
+  .book-pages strong {
+    font-size: clamp(18px, 6.5vw, 26px);
+  }
+
+  .book-glow {
+    width: 100vw;
+    filter: blur(45px);
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+  .book {
+    width: calc(100vw - 40px);
+  }
+
+  .book-cover-content h2 {
+    font-size: clamp(11px, 4vw, 15px);
+    letter-spacing: 0.04em;
+  }
+
+  .book-cover-content p {
+    font-size: 6px;
+    letter-spacing: 0.03em;
+  }
+
+  .book-pages {
+    inset: 4px 7%;
+    padding: 4px;
+  }
+
+  .book-pages span {
+    font-size: 7px;
+    letter-spacing: 0.03em;
+  }
+
+  .book-pages strong {
+    font-size: 17px;
+    letter-spacing: 0;
+  }
+}
+
+/* Reduce decorative motion if requested by the device */
+@media (prefers-reduced-motion: reduce) {
+  .magic-circle-outer,
+  .magic-circle-inner {
+    animation: none !important;
+  }
+}
+
+/* =====================================
+   MODE-SPECIFIC GRIMOIRE ATMOSPHERE
+===================================== */
+
+.grimoire-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.atmosphere-aura {
+  position: absolute;
+  width: min(90vw, 750px);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    var(--grimoire-aura) 0%,
+    transparent 68%
+  );
+  animation: grimoire-aura-pulse 3s ease-in-out infinite;
+}
+
+.atmosphere-aura-two {
+  width: min(65vw, 520px);
+  animation-delay: -1.5s;
+  opacity: 0.7;
+}
+
+.grimoire-particle {
+  position: absolute;
+  left: calc((var(--particle-position, 1) * 1%));
+  bottom: -15px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--particle-color);
+  box-shadow: 0 0 12px var(--particle-color);
+  opacity: 0;
+  animation: grimoire-particle-rise var(--particle-duration, 5s)
+    linear infinite;
+  animation-delay: var(--particle-delay, 0s);
+}
+
+.particle-1 { --particle-position: 8; --particle-duration: 5s; --particle-delay: -1s; }
+.particle-2 { --particle-position: 18; --particle-duration: 7s; --particle-delay: -3s; }
+.particle-3 { --particle-position: 29; --particle-duration: 4.5s; --particle-delay: -2s; }
+.particle-4 { --particle-position: 39; --particle-duration: 6s; --particle-delay: -4s; }
+.particle-5 { --particle-position: 52; --particle-duration: 5.5s; --particle-delay: -1.5s; }
+.particle-6 { --particle-position: 68; --particle-duration: 7s; --particle-delay: -2.5s; }
+
+/* =====================================
+   ASTA — DEVIL GRIMOIRE
+===================================== */
+
+.mode-asta {
+  --grimoire-aura: rgba(190, 0, 28, 0.3);
+  --particle-color: #ff263f;
+  --magic-primary: #f01835;
+  --magic-secondary: #8f001c;
+  --magic-border: rgba(255, 45, 65, 0.65);
+  background:
+    radial-gradient(
+      ellipse at 50% 72%,
+      rgba(230, 0, 35, 0.2),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 50% 25%,
+      rgba(100, 0, 12, 0.3),
+      transparent 60%
+    ),
+    #080103;
+}
+
+.mode-asta .opening-overlay {
+  background:
+    radial-gradient(
+      circle at 50% 55%,
+      rgba(255, 0, 35, 0.22),
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(20, 0, 3, 0.35),
+      rgba(80, 0, 12, 0.3),
+      rgba(0, 0, 0, 0.8)
+    ),
+    #080103;
+}
+
+.mode-asta .magic-circle-outer {
+  border-color: rgba(255, 25, 55, 0.75);
+  box-shadow:
+    0 0 30px rgba(255, 0, 35, 0.3),
+    inset 0 0 50px rgba(220, 0, 30, 0.16);
+}
+
+.mode-asta .magic-circle-inner {
+  border-color: rgba(255, 90, 105, 0.55);
+  box-shadow:
+    0 0 30px rgba(255, 0, 35, 0.2),
+    inset 0 0 30px rgba(220, 0, 30, 0.12);
+}
+
+.mode-asta .opening-clover {
+  color: #ff1c3c;
+  filter:
+    drop-shadow(0 0 15px rgba(255, 0, 35, 1))
+    drop-shadow(0 0 45px rgba(255, 0, 30, 0.85))
+    drop-shadow(0 0 100px rgba(180, 0, 20, 0.65));
+}
+
+.mode-asta .energy-burst {
+  border-color: rgba(255, 35, 60, 0.95);
+  box-shadow:
+    0 0 30px rgba(255, 0, 35, 0.95),
+    0 0 80px rgba(220, 0, 25, 0.65),
+    0 0 140px rgba(180, 0, 20, 0.4);
+}
+
+.mode-asta .book-glow {
+  background: rgba(230, 0, 35, 0.4);
+  filter: blur(85px);
+}
+
+.mode-asta .book-left,
+.mode-asta .book-right {
+  background: linear-gradient(
+    135deg,
+    #390711,
+    #100307 55%,
+    #27030b
+  );
+  border-color: rgba(255, 40, 65, 0.7);
+  box-shadow:
+    inset 0 0 35px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(220, 0, 35, 0.12);
+}
+
+.mode-asta .book-cover-content {
+  border-color: rgba(255, 50, 65, 0.4);
+  background: radial-gradient(
+    circle,
+    rgba(120, 0, 18, 0.12),
+    transparent 70%
+  );
+}
+
+.mode-asta .book-clover,
+.mode-asta .book-symbol {
+  color: #ff304b;
+  filter: drop-shadow(0 0 15px rgba(255, 0, 35, 0.8));
+  text-shadow: 0 0 25px rgba(255, 0, 35, 0.75);
+}
+
+.mode-asta .book-cover-content h2 {
+  color: #ffe8ec;
+}
+
+.mode-asta .book-cover-content p {
+  color: #ff7184;
+}
+
+.mode-asta .book-pages {
+  background: radial-gradient(
+    circle,
+    #3b0b15,
+    #140309
+  );
+  color: #ffe5e9;
+  box-shadow:
+    0 0 50px rgba(255, 0, 35, 0.55),
+    0 0 100px rgba(180, 0, 25, 0.35);
+}
+
+/* =====================================
+   YUNO — WIND GRIMOIRE
+===================================== */
+
+.mode-yuno {
+  --grimoire-aura: rgba(30, 210, 80, 0.2);
+  --particle-color: #70ff75;
+  --magic-primary: #78ff86;
+  --magic-secondary: #16883e;
+  --magic-border: rgba(120, 255, 100, 0.55);
+  background:
+    radial-gradient(
+      ellipse at 50% 55%,
+      rgba(30, 160, 45, 0.15),
+      transparent 55%
+    ),
+    #000;
+}
+
+.mode-yuno .opening-overlay {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(40, 110, 40, 0.15),
+      transparent 40%
+    ),
+    #000;
+}
+
+.mode-yuno .magic-circle-outer {
+  border-color: rgba(120, 255, 100, 0.55);
+}
+
+.mode-yuno .magic-circle-inner {
+  border-color: rgba(160, 255, 130, 0.5);
+}
+
+.mode-yuno .opening-clover {
+  filter:
+    drop-shadow(0 0 15px rgba(100, 255, 100, 1))
+    drop-shadow(0 0 50px rgba(60, 240, 80, 0.8))
+    drop-shadow(0 0 100px rgba(50, 220, 50, 0.4));
+}
+
+.mode-yuno .book-glow {
+  background: rgba(70, 220, 70, 0.25);
+}
+
+.mode-yuno .book-left,
+.mode-yuno .book-right {
+  background: linear-gradient(
+    135deg,
+    #182819,
+    #071007 55%,
+    #102010
+  );
+  border-color: rgba(130, 190, 100, 0.7);
+}
+
+.mode-yuno .book-cover-content {
+  border-color: rgba(130, 210, 110, 0.35);
+}
+
+.mode-yuno .book-clover {
+  filter: drop-shadow(0 0 12px rgba(100, 255, 100, 0.8));
+}
+
+.mode-yuno .book-symbol {
+  color: #92e86f;
+  text-shadow: 0 0 20px rgba(100, 255, 100, 0.7);
+}
+
+.mode-yuno .book-cover-content h2 {
+  color: #eef5e9;
+}
+
+.mode-yuno .book-cover-content p {
+  color: #8fd378;
+}
+
+.mode-yuno .book-pages {
+  background: radial-gradient(
+    circle,
+    #eff7df,
+    #cbd6bb
+  );
+  color: #182016;
+  box-shadow:
+    0 0 50px rgba(160, 255, 120, 0.8),
+    0 0 100px rgba(100, 240, 80, 0.3);
+}
+
+/* =====================================
+   ATMOSPHERE ANIMATIONS
+===================================== */
+
+@keyframes grimoire-aura-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    scale: 0.92;
+  }
+
+  50% {
+    opacity: 0.9;
+    scale: 1.08;
+  }
+}
+
+@keyframes grimoire-particle-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.4);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  80% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translate3d(20px, -100vh, 0) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .grimoire-atmosphere *,
+  .atmosphere-aura,
+  .grimoire-particle {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,242 @@
+
+/* =========================================
+   GRIMOIRE CONTAINER
+========================================= */
+
+.grimoire-container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: 45px;
+}
+
+.grimoire {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================================
+   BOOK COVER — BLACK & CRIMSON
+========================================= */
+
+.book-cover {
+  position: relative;
+  width: min(340px, 100%);
+  aspect-ratio: 340 / 470;
+  height: auto;
+
+  /* Deep black interior with a subtle crimson tint */
+  background: linear-gradient(
+    135deg,
+    #100609,
+    #030303 45%,
+    #160509
+  );
+
+  border: 2px solid #a61932;
+  border-radius: 8px;
+
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.95),
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(166, 25, 50, 0.18);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-border {
+  width: 88%;
+  height: 92%;
+
+  border: 1px solid rgba(190, 40, 65, 0.4);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.book-border::before,
+.book-border::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #d32f4f;
+}
+
+.book-border::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.book-border::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* =========================================
+   BOOK CONTENT
+========================================= */
+
+.clover-symbol {
+  font-size: clamp(48px, 18vw, 80px);
+
+  /* Crimson magic glow */
+  filter:
+    drop-shadow(0 0 10px rgba(255, 25, 65, 0.75))
+    drop-shadow(0 0 30px rgba(190, 15, 45, 0.45));
+
+  margin-bottom: clamp(18px, 6vw, 35px);
+}
+
+.book-title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(25px, 8vw, 34px);
+  letter-spacing: 0.14em;
+  color: #f5e9eb;
+  text-align: center;
+}
+
+.book-subtitle {
+  margin-top: 12px;
+  font-size: clamp(8px, 2.8vw, 10px);
+  letter-spacing: clamp(0.12em, 1.2vw, 0.35em);
+
+  /* Crimson subtitle */
+  color: #e63956;
+  text-align: center;
+}
+
+/* =========================================
+   OPEN GRIMOIRE BUTTON — DARK CRIMSON
+========================================= */
+
+.open-grimoire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: fit-content;
+  max-width: 100%;
+  min-height: 48px;
+
+  border: 1px solid #c62845;
+
+  background: linear-gradient(
+    180deg,
+    rgba(150, 15, 40, 0.24),
+    rgba(55, 5, 16, 0.55)
+  );
+
+  color: #ffb8c5;
+
+  padding: 14px 22px;
+  cursor: pointer;
+
+  font-size: clamp(10px, 3vw, 12px);
+  letter-spacing: clamp(0.08em, 0.8vw, 0.2em);
+  font-weight: 700;
+
+  border-radius: 4px;
+  transition: 0.3s;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.open-grimoire span {
+  flex-shrink: 0;
+  color: #ff4568;
+}
+
+.open-grimoire:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(190, 25, 55, 0.4),
+    rgba(75, 5, 20, 0.75)
+  );
+
+  border-color: #ff4568;
+  color: #ffffff;
+
+  box-shadow:
+    0 0 12px rgba(220, 25, 60, 0.3),
+    0 0 24px rgba(220, 25, 60, 0.15);
+}
+
+.open-grimoire:hover span {
+  color: #ff7890;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 600px) {
+  .grimoire-container {
+    gap: 24px;
+    padding-inline: 0;
+  }
+
+  .grimoire {
+    max-width: min(280px, 100%);
+  }
+
+  .book-cover {
+    width: 100%;
+  }
+
+  .open-grimoire {
+    padding: 13px 16px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .grimoire {
+    max-width: min(250px, 100%);
+  }
+
+  .grimoire-container {
+    gap: 20px;
+  }
+
+  .book-title {
+    letter-spacing: 0.1em;
+  }
+
+  .book-subtitle {
+    letter-spacing: 0.12em;
+  }
+
+  .open-grimoire {
+    padding: 12px 13px;
+    font-size: 10px;
+    letter-spacing: 0.07em;
+  }
+}
+
+/* Only use 3D hover effects on devices with real hover */
+@media (hover: none) {
+  .grimoire {
+    perspective: none;
+  }
+}

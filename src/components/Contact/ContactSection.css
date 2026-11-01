@@ -1,0 +1,546 @@
+
+/* =========================================
+   CONTACT — GUILD INVITATION
+========================================= */
+
+.guild-section {
+  --guild-purple: #a855f7;
+  --guild-bright: #c084fc;
+  --guild-text: #f5efff;
+  --guild-muted: #aa9bb9;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 45px 24px 30px;
+  border-top: 1px solid rgba(168, 85, 247, 0.14);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      rgba(126, 34, 206, 0.15),
+      transparent 48%
+    ),
+    #08060d;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.guild-container {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.guild-heading {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.guild-eyebrow,
+.guild-label {
+  color: var(--guild-bright);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.guild-heading h2 {
+  margin: 18px 0;
+  color: var(--guild-text);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(38px, 7vw, 70px);
+  line-height: 1.15;
+}
+
+.guild-heading h2 span {
+  color: var(--guild-purple);
+  text-shadow: 0 0 28px rgba(168, 85, 247, 0.4);
+}
+
+.guild-intro {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--guild-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* =========================================
+   CONTACT LINK CARDS
+========================================= */
+
+.guild-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.guild-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(168, 85, 247, 0.23);
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(88, 28, 135, 0.14),
+      transparent 65%
+    ),
+    #0d0913;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.guild-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    var(--guild-purple),
+    var(--guild-bright),
+    transparent
+  );
+  transition: width 0.35s ease;
+}
+
+.guild-card:hover,
+.guild-card:focus-visible {
+  border-color: rgba(192, 132, 252, 0.7);
+  background-color: #110a19;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.12);
+}
+
+.guild-card:hover::before,
+.guild-card:focus-visible::before {
+  width: 100%;
+}
+
+.guild-card:focus-visible,
+.guild-resume-button:focus-visible {
+  outline: 2px solid var(--guild-bright);
+  outline-offset: 4px;
+}
+
+/* Contact symbols */
+
+.guild-symbol {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  place-items: center;
+  border: 1px solid rgba(168, 85, 247, 0.42);
+  border-radius: 10px;
+  background: rgba(168, 85, 247, 0.08);
+  color: var(--guild-bright);
+  font-size: 23px;
+  font-weight: 700;
+  text-shadow: 0 0 14px rgba(168, 85, 247, 0.5);
+}
+
+.guild-label {
+  margin: 0 0 10px;
+  font-size: 9px;
+}
+
+.guild-title {
+  color: var(--guild-text);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.guild-detail {
+  min-height: 40px;
+  margin-top: 8px;
+  color: var(--guild-muted);
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.guild-action {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+  color: var(--guild-bright);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+/* =========================================
+   RESUME PANEL
+========================================= */
+
+.guild-resume {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(88, 28, 135, 0.14),
+      transparent 75%
+    ),
+    #0b0810;
+}
+
+.guild-resume-rune {
+  flex: 0 0 auto;
+  color: var(--guild-bright);
+  font-size: 42px;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.guild-resume-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.guild-resume-copy .guild-label {
+  margin: 0 0 9px;
+}
+
+.guild-resume-copy h3 {
+  margin: 0;
+  color: var(--guild-text);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.guild-resume-copy > p:last-child {
+  margin: 8px 0 0;
+  color: var(--guild-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.guild-resume-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border: 1px solid var(--guild-purple);
+  border-radius: 3px;
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--guild-bright);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.guild-resume-button:hover {
+  background: rgba(168, 85, 247, 0.2);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.14);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.guild-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 65px;
+  padding: 25px 0 5px;
+  border-top: 1px solid rgba(168, 85, 247, 0.13);
+  color: #82738f;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.guild-footer p {
+  margin: 0;
+}
+
+.guild-footer p span {
+  color: var(--guild-bright);
+}
+
+.guild-footer-motto {
+  color: var(--guild-bright);
+  font-style: italic;
+}
+
+/* =========================================
+   YUNO MODE — MUTED SAGE GREEN
+========================================= */
+
+:root[data-magic-mode="yuno"] .guild-section {
+  --guild-purple: #286b43;
+  --guild-bright: #286b43;
+  --guild-text: #203b2a;
+  --guild-muted: #526b57;
+
+  border-top-color: rgba(42, 104, 62, 0.22);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      rgba(72, 130, 82, 0.12),
+      transparent 55%
+    ),
+    #e2ede2;
+}
+
+:root[data-magic-mode="yuno"] .guild-heading h2 span {
+  color: #348653;
+  text-shadow: 0 0 22px rgba(52, 134, 83, 0.15);
+}
+
+:root[data-magic-mode="yuno"] .guild-card {
+  border-color: rgba(42, 104, 62, 0.23);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(104, 157, 111, 0.12),
+      transparent 70%
+    ),
+    #d8e7d7;
+}
+
+:root[data-magic-mode="yuno"] .guild-card::before {
+  background: linear-gradient(
+    90deg,
+    #286b43,
+    #66a875,
+    transparent
+  );
+}
+
+:root[data-magic-mode="yuno"] .guild-card:hover,
+:root[data-magic-mode="yuno"] .guild-card:focus-visible {
+  border-color: rgba(42, 104, 62, 0.65);
+  background-color: #cfe1cf;
+  box-shadow: 0 0 25px rgba(42, 104, 62, 0.1);
+}
+
+:root[data-magic-mode="yuno"] .guild-card:focus-visible,
+:root[data-magic-mode="yuno"] .guild-resume-button:focus-visible {
+  outline-color: #348653;
+}
+
+:root[data-magic-mode="yuno"] .guild-symbol {
+  border-color: rgba(42, 104, 62, 0.32);
+  background: rgba(52, 134, 83, 0.09);
+  color: #286b43;
+  text-shadow: 0 0 14px rgba(52, 134, 83, 0.15);
+}
+
+:root[data-magic-mode="yuno"] .guild-title {
+  color: #203b2a;
+}
+
+:root[data-magic-mode="yuno"] .guild-action {
+  border-top-color: rgba(42, 104, 62, 0.2);
+}
+
+:root[data-magic-mode="yuno"] .guild-resume {
+  border-color: rgba(42, 104, 62, 0.24);
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(104, 157, 111, 0.12),
+      transparent 75%
+    ),
+    #d8e7d7;
+}
+
+:root[data-magic-mode="yuno"] .guild-resume-rune {
+  color: #286b43;
+  text-shadow: 0 0 18px rgba(52, 134, 83, 0.15);
+}
+
+:root[data-magic-mode="yuno"] .guild-resume-button {
+  border-color: #348653;
+  background: rgba(52, 134, 83, 0.08);
+  color: #286b43;
+}
+
+:root[data-magic-mode="yuno"] .guild-resume-button:hover {
+  background: rgba(52, 134, 83, 0.15);
+  box-shadow: 0 0 20px rgba(52, 134, 83, 0.12);
+}
+
+:root[data-magic-mode="yuno"] .guild-footer {
+  border-top-color: rgba(42, 104, 62, 0.2);
+  color: #617764;
+}
+
+/* =========================================
+   ASTA MODE — DARK VIOLET
+========================================= */
+
+:root[data-magic-mode="asta"] .guild-section {
+  --guild-purple: #a855f7;
+  --guild-bright: #c084fc;
+  --guild-text: #f5efff;
+  --guild-muted: #aa9bb9;
+
+  border-top-color: rgba(168, 85, 247, 0.14);
+
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      rgba(126, 34, 206, 0.15),
+      transparent 48%
+    ),
+    #08060d;
+}
+
+:root[data-magic-mode="asta"] .guild-card {
+  border-color: rgba(168, 85, 247, 0.23);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(88, 28, 135, 0.14),
+      transparent 65%
+    ),
+    #0d0913;
+}
+
+:root[data-magic-mode="asta"] .guild-card:hover,
+:root[data-magic-mode="asta"] .guild-card:focus-visible {
+  border-color: rgba(192, 132, 252, 0.7);
+  background-color: #110a19;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.12);
+}
+
+:root[data-magic-mode="asta"] .guild-symbol {
+  border-color: rgba(168, 85, 247, 0.42);
+  background: rgba(168, 85, 247, 0.08);
+  color: #c084fc;
+  text-shadow: 0 0 14px rgba(168, 85, 247, 0.5);
+}
+
+:root[data-magic-mode="asta"] .guild-resume {
+  border-color: rgba(168, 85, 247, 0.25);
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(88, 28, 135, 0.14),
+      transparent 75%
+    ),
+    #0b0810;
+}
+
+:root[data-magic-mode="asta"] .guild-resume-button {
+  border-color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+  color: #c084fc;
+}
+
+:root[data-magic-mode="asta"] .guild-resume-button:hover {
+  background: rgba(168, 85, 247, 0.2);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.14);
+}
+
+:root[data-magic-mode="asta"] .guild-footer {
+  border-top-color: rgba(168, 85, 247, 0.13);
+  color: #82738f;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 760px) {
+  .guild-section {
+    padding: 35px 20px 25px;
+  }
+
+  .guild-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guild-card {
+    padding: 22px;
+  }
+
+  .guild-symbol {
+    margin-bottom: 16px;
+  }
+
+  .guild-detail {
+    min-height: 0;
+  }
+
+  .guild-resume {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 22px;
+  }
+
+  .guild-resume-copy {
+    flex-basis: calc(100% - 70px);
+  }
+
+  .guild-resume-button {
+    margin-left: 0;
+  }
+
+  .guild-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .guild-section,
+  .guild-card,
+  .guild-card::before,
+  .guild-resume-button {
+    transition: none !important;
+  }
+}
