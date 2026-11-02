@@ -18,6 +18,12 @@ export default function useMagicMode() {
   useEffect(() => {
     document.documentElement.dataset.magicMode = mode;
 
+    // Swap favicon to match the active magic mode
+    const favicon = document.getElementById("app-favicon") as HTMLLinkElement | null;
+    if (favicon) {
+      favicon.href = mode === "yuno" ? "/favicon-yuno.svg" : "/favicon-asta.svg";
+    }
+
     try {
       localStorage.setItem(STORAGE_KEY, mode);
     } catch {
