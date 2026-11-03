@@ -72,6 +72,12 @@ export const experiences: Experience[] = [
     ],
     symbol: "✧",
     color: "#B78AFF",
+    certificates: [
+      {
+        title: "Certificate of Appreciation",
+        file: "/certificates/mobile-hackathon.pdf",
+      },
+    ],
   },
   {
     id: "aj-tech",
